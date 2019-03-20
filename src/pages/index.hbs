@@ -10,29 +10,21 @@
     </div>
     <div class="fsa-section">
       <div class="fsa-section__bd">
-        <div class="fsa-content-tabs">
-          <ul class="fsa-content-tabs__list">
-            <li class="fsa-content-tabs__item">
-              <a class="fsa-content-tabs__label fsa-content-tabs__label--active" href="index.html" aria-current="true">
-                <span class="fsa-content-tabs__label-text">Employees</span>
-              </a>
-            </li>
-            <li class="fsa-content-tabs__item">
-              <a class="fsa-content-tabs__label" href="territories.html">
-                <span class="fsa-content-tabs__label-text">Territories</span>
-              </a>
-            </li>
-            <li class="fsa-content-tabs__item">
-              <a class="fsa-content-tabs__label" href="programs.html">
-                <span class="fsa-content-tabs__label-text">Programs</span>
-              </a>
-            </li>
-          </ul>
-          <div class="fsa-content-tabs__aside"></div>
-        </div>
-        <p class="fsa-m-t--l">
-          <button class="fsa-btn fsa-btn--primary" type="button" aria-expanded="false" title="Add an Employee" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-new"> Add </button>
+        
+        <p>
+          {{> ../components/date-picker/date-picker
+              datePickerInputId="dpDemo"
+              inputValue=""
+              datePickerLabel="Select date:"
+              iconText="Date Icon"
+              datePickerHelpId="dpHelp"
+          }}
         </p>
+
+      </div>
+    </div>
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
         <table class="fsa-table fsa-table--borderless fsa-table--responsive fsa-table--responsive-horizontal">
           <caption class="sr-only">Employees</caption>
           <thead>
@@ -72,83 +64,6 @@
               <td aria-label="Last Name" scope="row">Daniels</td>
               <td aria-label="Job Title" scope="row">Deputy Commissioner</td>
               <td aria-label="Hire Date" scope="row"><time datetime="1985-11-29">1985-11-29</time></td>
-            </tr>
-            <tr>
-              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">88892</button></th>
-              <td aria-label="First Name" scope="row">Francis</td>
-              <td aria-label="Last Name" scope="row">Sobotka</td>
-              <td aria-label="Job Title" scope="row">Union Secretary</td>
-              <td aria-label="Hire Date" scope="row"><time datetime="2015-01-20">2015-01-20</time></td>
-            </tr>
-            <tr id="UNIQUE-ID__employee-88893" hidden="true">
-              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">88893</button></th>
-              <td aria-label="First Name" scope="row">Omar</td>
-              <td aria-label="Last Name" scope="row">Little</td>
-              <td aria-label="Job Title" scope="row">Independent Consultant</td>
-              <td aria-label="Hire Date" scope="row"><time datetime="2015-01-20">2004-10-01</time></td>
-            </tr>
-            <tr>
-              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
-              <td aria-label="First Name" scope="row">[first_name]</td>
-              <td aria-label="Last Name" scope="row">[last_name]</td>
-              <td aria-label="Job Title" scope="row">[position]</td>
-              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
-            </tr>
-            <tr>
-              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
-              <td aria-label="First Name" scope="row">[first_name]</td>
-              <td aria-label="Last Name" scope="row">[last_name]</td>
-              <td aria-label="Job Title" scope="row">[position]</td>
-              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
-            </tr>
-            <tr>
-              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
-              <td aria-label="First Name" scope="row">[first_name]</td>
-              <td aria-label="Last Name" scope="row">[last_name]</td>
-              <td aria-label="Job Title" scope="row">[position]</td>
-              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
-            </tr>
-            <tr>
-              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
-              <td aria-label="First Name" scope="row">[first_name]</td>
-              <td aria-label="Last Name" scope="row">[last_name]</td>
-              <td aria-label="Job Title" scope="row">[position]</td>
-              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
-            </tr>
-            <tr>
-              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
-              <td aria-label="First Name" scope="row">[first_name]</td>
-              <td aria-label="Last Name" scope="row">[last_name]</td>
-              <td aria-label="Job Title" scope="row">[position]</td>
-              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
-            </tr>
-            <tr>
-              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
-              <td aria-label="First Name" scope="row">[first_name]</td>
-              <td aria-label="Last Name" scope="row">[last_name]</td>
-              <td aria-label="Job Title" scope="row">[position]</td>
-              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
-            </tr>
-            <tr>
-              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
-              <td aria-label="First Name" scope="row">[first_name]</td>
-              <td aria-label="Last Name" scope="row">[last_name]</td>
-              <td aria-label="Job Title" scope="row">[position]</td>
-              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
-            </tr>
-            <tr>
-              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
-              <td aria-label="First Name" scope="row">[first_name]</td>
-              <td aria-label="Last Name" scope="row">[last_name]</td>
-              <td aria-label="Job Title" scope="row">[position]</td>
-              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
-            </tr>
-            <tr>
-              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
-              <td aria-label="First Name" scope="row">[first_name]</td>
-              <td aria-label="Last Name" scope="row">[last_name]</td>
-              <td aria-label="Job Title" scope="row">[position]</td>
-              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
             </tr>
             <tr>
               <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
@@ -227,5 +142,26 @@
     {{> ../includes/hidden }}
     <!-- /HIDDEN -->
   {{/inline}}
+
+  {{#*inline "scripts-block"}}
+    <script type="text/javascript">
+			//window.addEventListener("load", function(evt){
+
+			window.onload = function(){
+				datepicker.create({
+          // Associate the text input to a DD/MM/YYYY date format
+          formElements: { "dpDemo": "%m/%d/%Y" },
+          noFadeEffect: true,
+          staticPos: false,
+          labelText: "Start Date"
+        });
+        datepicker.show("dpDemo");
+			};
+			
+			//});
+    </script>
+  {{/inline}}
+
+
 
 {{/../layouts/base }}
