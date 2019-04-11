@@ -1,4 +1,4 @@
-{{#> ../layouts/base title='Prototype Kit - FSA' }}
+{{#> ../layouts/base TITLE='Prototype Kit - Home' }}
 
   {{#*inline "header-block"}}
     <header>
@@ -168,34 +168,35 @@
             </ul>
           </div>
         </nav>
-      </div>
-    </div>
+
+        {{> ../components/stepped-controls/stepped-controls
+          CURRENT_STEP="1"
+          TOTAL_STEPS="5"
+          BACK_URL="index.html"
+          BACK_LABEL="Back"
+          CONTINUE_URL="sections.html"
+          CONTINUE_LABEL="Continue"
+          USE_GROWL_ON_CANCEL=true  
+          GROWL_ID="growl_cancel_steps"      
+        }}
+
+
+      </div><!-- section_bg -->
+    </div><!-- section -->
+
   {{/inline}}
 
   {{#*inline "hidden-block"}}
     <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
-    {{> ../components/growl/growl }}
+    {{> ../components/growl/growl-cancel GROWL_ID="growl_cancel_steps" }}
     {{> ../components/modal/modal MODAL_URL_1="sections.html" }}
     <!-- /HIDDEN -->
   {{/inline}}
 
   {{#*inline "scripts-block"}}
-    <script type="text/javascript">
-			//window.addEventListener("load", function(evt){
+    
+    {{> ../includes/scripts }}
 
-			window.onload = function(){
-				datepicker.create({
-          // Associate the text input to a DD/MM/YYYY date format
-          formElements: { "dpDemo": "%m/%d/%Y" },
-          noFadeEffect: true,
-          staticPos: false,
-          labelText: "Start Date"
-        });
-        datepicker.show("dpDemo");
-			};
-			
-			//});
-    </script>
   {{/inline}}
 
 
