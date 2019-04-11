@@ -1,5 +1,34 @@
 {{#> ../layouts/base title='Prototype Kit - FSA' }}
 
+  {{#*inline "header-block"}}
+    <header>
+      {{> ../components/tophat/tophat }}
+      <div class="fsa-header-app">
+        <div class="fsa-header-app__bd">
+          <div class="fsa-header-app__primary">
+            <a class="fsa-header-app__home-link" href="sections.html" title="Link to YAFANS home">
+              <span class="fsa-header-app__app-name">
+                <abbr class="fsa-header-app__app-abbr" title="Electronic Loan Deficiency Payment Schedule">YAFANS</abbr>
+                <span class="fsa-header-app__app-full">Yet Another Farm App Name Superlong</span>
+              </span>
+            </a>
+          </div>
+          <div class="fsa-header-app__secondary">
+            <span class="fsa-header-app__profile">
+              <a href="" class="fsa-header-app__profile-link">
+                <span class="fsa-header-app__profile-name" title="Francis Christopher Rupert">Francis Christopher Rupert</span>
+                <span class="fsa-header-app__profile-expand"></span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      {{> ../components/global-nav/global-nav NAV1_ACTIVE=true }}
+
+    </header>
+  {{/inline}}
+
   {{#*inline "main-block"}}
 
     <div class="fsa-section">
