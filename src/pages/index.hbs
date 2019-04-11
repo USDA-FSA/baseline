@@ -40,6 +40,23 @@
     
     <div class="fsa-section">
       <div class="fsa-section__bd">
+
+        <button
+          role="button"
+          type="button"
+          aria-behavior="modal-show"
+          data-behavior="open-modal"
+          aria-controls="UNIQUE-ID-emp-new"
+          aria-expanded="false"
+          class="fsa-btn fsa-btn--secondary">
+          Add New Employee
+        </button>
+
+      </div>
+    </div>
+
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
         <table class="fsa-table fsa-table--borderless fsa-table--responsive fsa-table--responsive-horizontal">
           <caption class="sr-only">Employees</caption>
           <thead>
@@ -154,7 +171,8 @@
 
   {{#*inline "hidden-block"}}
     <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
-    {{> ../includes/hidden }}
+    {{> ../components/growl/growl }}
+    {{> ../components/modal/modal MODAL_URL_1="sections.html" }}
     <!-- /HIDDEN -->
   {{/inline}}
 
