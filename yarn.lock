@@ -8459,9 +8459,9 @@ stylelint-webpack-plugin@^0.10.5:
     object-assign "^4.1.0"
     ramda "^0.25.0"
 
-stylelint@^9.2.1:
+"stylelint@https://github.com/stylelint/stylelint/archive/9.4.0.tar.gz":
   version "9.4.0"
-  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-9.4.0.tgz#2f2b82ae9db53a06735ae0724f41b134fdb84a10"
+  resolved "https://github.com/stylelint/stylelint/archive/9.4.0.tar.gz#a511e1b661dea98a7a63e9820732530849c5f81f"
   dependencies:
     autoprefixer "^9.0.0"
     balanced-match "^1.0.0"
