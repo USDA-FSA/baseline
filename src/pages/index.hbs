@@ -15,15 +15,14 @@
           </div>
           <div class="fsa-header-app__secondary">
             <span class="fsa-header-app__profile">
-              <a href="" class="fsa-header-app__profile-link">
-                <span class="fsa-header-app__profile-name" title="Francis Christopher Rupert">Francis Christopher Rupert</span>
-                <span class="fsa-header-app__profile-expand"></span>
+              <a href="https://www.eauth.usda.gov/Logout/logoff.asp" class="fsa-header-app__profile-link">
+                <span class="fsa-header-app__profile-name">Francis Rupert (Log off)</span>
               </a>
             </span>
           </div>
         </div>
       </div>
-      
+
       {{> ../components/global-nav/global-nav NAV1_ACTIVE=true }}
 
     </header>
@@ -38,28 +37,21 @@
 
         <h1>Employee Data</h1>
         <p class="fsa-text--lead">Similique natus laborum provident porro necessitatibus, quibusdam recusandae alias delectus? Ut temporibus atque consequuntur sint saepe veritatis ab dolore voluptatum, eligendi iure!</p>
-      </div>
-    </div>
-    
-    <div class="fsa-section">
-      <div class="fsa-section__bd">
 
-        <button
-          role="button"
-          type="button"
-          aria-behavior="modal-show"
-          data-behavior="open-modal"
-          aria-controls="UNIQUE-ID-emp-new"
-          aria-expanded="false"
-          class="fsa-btn fsa-btn--secondary">
-          Add New Employee
-        </button>
+        <p>
+          <button
+            role="button"
+            type="button"
+            aria-behavior="modal-show"
+            data-behavior="open-modal"
+            aria-controls="UNIQUE-ID-emp-new"
+            aria-expanded="false"
+            class="fsa-btn fsa-btn--secondary"
+          >
+            Add New Employee
+          </button>
+        </p>
 
-      </div>
-    </div>
-
-    <div class="fsa-section">
-      <div class="fsa-section__bd">
         <table class="fsa-table fsa-table--borderless fsa-table--responsive fsa-table--responsive-horizontal">
           <caption class="sr-only">Employees</caption>
           <thead>
@@ -176,10 +168,9 @@
           BACK_LABEL="Back"
           CONTINUE_URL="step2.html"
           CONTINUE_LABEL="Continue"
-          USE_GROWL_ON_CANCEL=true  
-          GROWL_ID="growl_cancel_steps"      
+          USE_GROWL_ON_CANCEL=true
+          GROWL_ID="growl_cancel_steps"
         }}
-
 
       </div><!-- section_bg -->
     </div><!-- section -->
@@ -194,11 +185,9 @@
   {{/inline}}
 
   {{#*inline "scripts-block"}}
-    
+
     {{> ../includes/scripts }}
 
   {{/inline}}
-
-
 
 {{/../layouts/base }}

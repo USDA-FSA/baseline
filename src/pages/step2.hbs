@@ -15,15 +15,14 @@
           </div>
           <div class="fsa-header-app__secondary">
             <span class="fsa-header-app__profile">
-              <a href="" class="fsa-header-app__profile-link">
-                <span class="fsa-header-app__profile-name" title="Francis Christopher Rupert">Francis Christopher Rupert</span>
-                <span class="fsa-header-app__profile-expand"></span>
+              <a href="https://www.eauth.usda.gov/Logout/logoff.asp" class="fsa-header-app__profile-link">
+                <span class="fsa-header-app__profile-name">Francis Rupert (Log off)</span>
               </a>
             </span>
           </div>
         </div>
       </div>
-      
+
       {{> ../components/global-nav/global-nav NAV1_ACTIVE=true }}
 
     </header>
@@ -38,12 +37,6 @@
 
         <h1>Step 5</h1>
         <p class="fsa-text--lead">Similique natus laborum provident porro necessitatibus, quibusdam recusandae alias delectus? Ut temporibus atque consequuntur sint saepe veritatis ab dolore voluptatum, eligendi iure!</p>
-      </div>
-    </div>
-    
-
-    <div class="fsa-section">
-      <div class="fsa-section__bd">
         <table class="fsa-table fsa-table--borderless fsa-table--responsive fsa-table--responsive-horizontal">
           <caption class="sr-only">Employees</caption>
           <thead>
@@ -77,10 +70,10 @@
               <td aria-label="Job Title" scope="row">Major Case Unit Detective</td>
               <td aria-label="Hire Date" scope="row"><time datetime="1975-12-05">1975-12-05</time></td>
             </tr>
-            
+
           </tbody>
         </table>
-        
+
 
         {{> ../components/stepped-control/stepped-control
           CURRENT_STEP="5"
@@ -88,8 +81,8 @@
           BACK_URL="index.html"
           BACK_LABEL="Back"
           CONTINUE_LABEL="Save and Submit"
-          USE_GROWL_ON_CANCEL=true  
-          GROWL_ID="growl_cancel_steps" 
+          USE_GROWL_ON_CANCEL=true
+          GROWL_ID="growl_cancel_steps"
 					USE_GROWL_ON_SUBMIT=true
 		    	ON_SUBMIT_GROWL_ID="growl__success"
         }}
@@ -112,7 +105,7 @@
   {{/inline}}
 
   {{#*inline "scripts-block"}}
-    
+
     {{> ../includes/scripts }}
 
   {{/inline}}
