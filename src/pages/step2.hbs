@@ -3,28 +3,8 @@
   {{#*inline "header-block"}}
     <header>
       {{> ../components/tophat/tophat }}
-      <div class="fsa-header-app">
-        <div class="fsa-header-app__bd">
-          <div class="fsa-header-app__primary">
-            <a class="fsa-header-app__home-link" href="sections.html" title="Link to YAFANS home">
-              <span class="fsa-header-app__app-name">
-                <abbr class="fsa-header-app__app-abbr" title="Electronic Loan Deficiency Payment Schedule">YAFANS</abbr>
-                <span class="fsa-header-app__app-full">Yet Another Farm App Name Superlong</span>
-              </span>
-            </a>
-          </div>
-          <div class="fsa-header-app__secondary">
-            <span class="fsa-header-app__profile">
-              <a href="https://www.eauth.usda.gov/Logout/logoff.asp" class="fsa-header-app__profile-link">
-                <span class="fsa-header-app__profile-name">Francis Rupert (Log off)</span>
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-
+      {{> ../components/header-app/header-app }}
       {{> ../components/global-nav/global-nav NAV1_ACTIVE=true }}
-
     </header>
   {{/inline}}
 
@@ -33,60 +13,63 @@
     <div class="fsa-section">
       <div class="fsa-section__bd">
 
-        {{> ../components/stepped-tabs/stepped-tabs STEP1=true }}
+        <h1>Add a Loremsum</h1>
 
-        <h1>Step 5</h1>
-        <p class="fsa-text--lead">Similique natus laborum provident porro necessitatibus, quibusdam recusandae alias delectus? Ut temporibus atque consequuntur sint saepe veritatis ab dolore voluptatum, eligendi iure!</p>
-        <table class="fsa-table fsa-table--borderless fsa-table--responsive fsa-table--responsive-horizontal">
-          <caption class="sr-only">Employees</caption>
-          <thead>
-            <tr>
-              <th scope="col" class="fsa-table__th--sticky" aria-sort="ascending"><button class="fsa-table__sort fsa-table__sort--ascending" type="button">ID</button></th>
-              <th scope="col" class="fsa-table__th--sticky"><button class="fsa-table__sort" type="button">First Name</button></th>
-              <th scope="col" class="fsa-table__th--sticky"><button class="fsa-table__sort" type="button">Last Name</button></th>
-              <th scope="col" class="fsa-table__th--sticky"><button class="fsa-table__sort" type="button">Job Title</button></th>
-              <th scope="col" class="fsa-table__th--sticky"><button class="fsa-table__sort" type="button">Hire Date</button></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">11211</button></th>
-              <td aria-label="First Name" scope="row">Jimmy</td>
-              <td aria-label="Last Name" scope="row">McNulty</td>
-              <td aria-label="Job Title" scope="row">Patrol Officer</td>
-              <td aria-label="Hire Date" scope="row"><time datetime="1991-09-01">1991-09-01</time></td>
-            </tr>
-            <tr id="UNIQUE-ID__employee-56190">
-              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">56190</button></th>
-              <td aria-label="First Name" scope="row">Stringer</td>
-              <td aria-label="Last Name" scope="row">Bell</td>
-              <td aria-label="Job Title" scope="row">Lieutenant</td>
-              <td aria-label="Hire Date" scope="row"><time datetime="2000-06-01">2000-06-01</time></td>
-            </tr>
-            <tr>
-              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">78451</button></th>
-              <td aria-label="First Name" scope="row">Lestor</td>
-              <td aria-label="Last Name" scope="row">Freamon</td>
-              <td aria-label="Job Title" scope="row">Major Case Unit Detective</td>
-              <td aria-label="Hire Date" scope="row"><time datetime="1975-12-05">1975-12-05</time></td>
-            </tr>
+        {{> ../components/stepped-tabs/stepped-tabs STEP5=true }}
 
-          </tbody>
-        </table>
+        <h2>Second-level head</h2>
 
+        <div>
 
-        {{> ../components/stepped-control/stepped-control
-          CURRENT_STEP="5"
-          TOTAL_STEPS="5"
-          BACK_URL="index.html"
-          BACK_LABEL="Back"
-          CONTINUE_LABEL="Save and Submit"
-          USE_GROWL_ON_CANCEL=true
-          GROWL_ID="growl_cancel_steps"
-					USE_GROWL_ON_SUBMIT=true
-		    	ON_SUBMIT_GROWL_ID="growl__success"
-        }}
+          <table class="fsa-table fsa-table--borderless fsa-table--responsive fsa-table--responsive-horizontal">
+            <caption class="sr-only">Employees</caption>
+            <thead>
+              <tr>
+                <th scope="col" class="fsa-table__th--sticky" aria-sort="ascending"><button class="fsa-table__sort fsa-table__sort--ascending" type="button">ID</button></th>
+                <th scope="col" class="fsa-table__th--sticky"><button class="fsa-table__sort" type="button">First Name</button></th>
+                <th scope="col" class="fsa-table__th--sticky"><button class="fsa-table__sort" type="button">Last Name</button></th>
+                <th scope="col" class="fsa-table__th--sticky"><button class="fsa-table__sort" type="button">Job Title</button></th>
+                <th scope="col" class="fsa-table__th--sticky"><button class="fsa-table__sort" type="button">Hire Date</button></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">11211</button></th>
+                <td aria-label="First Name" scope="row">Jimmy</td>
+                <td aria-label="Last Name" scope="row">McNulty</td>
+                <td aria-label="Job Title" scope="row">Patrol Officer</td>
+                <td aria-label="Hire Date" scope="row"><time datetime="1991-09-01">1991-09-01</time></td>
+              </tr>
+              <tr id="UNIQUE-ID__employee-56190">
+                <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">56190</button></th>
+                <td aria-label="First Name" scope="row">Stringer</td>
+                <td aria-label="Last Name" scope="row">Bell</td>
+                <td aria-label="Job Title" scope="row">Lieutenant</td>
+                <td aria-label="Hire Date" scope="row"><time datetime="2000-06-01">2000-06-01</time></td>
+              </tr>
+              <tr>
+                <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">78451</button></th>
+                <td aria-label="First Name" scope="row">Lestor</td>
+                <td aria-label="Last Name" scope="row">Freamon</td>
+                <td aria-label="Job Title" scope="row">Major Case Unit Detective</td>
+                <td aria-label="Hire Date" scope="row"><time datetime="1975-12-05">1975-12-05</time></td>
+              </tr>
 
+            </tbody>
+          </table>
+
+          {{> ../components/stepped-control/stepped-control
+            CURRENT_STEP="5"
+            TOTAL_STEPS="5"
+            BACK_URL="index.html"
+            BACK_LABEL="Back"
+            CONTINUE_LABEL="Save and Submit"
+            USE_GROWL_ON_CANCEL=true
+            GROWL_ID="growl_cancel_steps"
+            USE_GROWL_ON_SUBMIT=true
+            ON_SUBMIT_GROWL_ID="growl__success"
+          }}
+        </div>
 
       </div><!-- section_bg -->
     </div><!-- section -->
@@ -109,7 +92,5 @@
     {{> ../includes/scripts }}
 
   {{/inline}}
-
-
 
 {{/../layouts/base }}

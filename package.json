@@ -1,6 +1,6 @@
 {
   "name": "fsa-prototype-kit",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Baseline Prototype Kit using Webpack and FSA Style as a dependency.",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
-    "fsa-style": "^2.1.7",
+    "fsa-style": "^2.2.0",
     "handlebars": "^4.0.11",
     "handlebars-loader": "^1.7.0",
     "handlebars-webpack-plugin": "^1.5.0",
