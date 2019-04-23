@@ -13,10 +13,12 @@ const WebpackPages = require('./webpack.pages.js');
 const basePath = process.cwd();
 
 let customizations = {
-  fsaStyleImg: path.join(basePath, 'node_modules/fsa-style/src/img/'),
-  mainStylePath: path.join(basePath, 'src/stylesheets/base.scss'),
+  
+  fsaStyleImgPath: path.join(basePath, 'node_modules/fsa-style/src/img/'),
+  fsaStyleFontsPath: path.join(basePath, 'node_modules/fsa-style/src/fonts/'),
   fsaStyleSCSSPath: path.join(basePath, 'node_modules/fsa-style/src/stylesheets/fsa-style.scss'),
-  fsaStyleJSPath: path.join(basePath, 'node_modules/fsa-style/src/js/main.js')
+  fsaStyleJSPath: path.join(basePath, 'node_modules/fsa-style/src/js/main.js'),
+  mainStylePath: path.join(basePath, 'src/stylesheets/base.scss')
 };
 
 // build array of sources from fsa-style in node_modules
@@ -193,7 +195,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: '/fonts/',
+              outputPath: '../fonts/',
               name: '[name].[ext]',
               limit: 100000
             }
@@ -210,8 +212,12 @@ module.exports.plugins = WebpackPages.AddPages( './src/pages/' );
 module.exports.plugins.push(
   new CopyWebpackPlugin([
     {
-      from: customizations.fsaStyleImg,
+      from: customizations.fsaStyleImgPath,
       to: './img/'
+    },
+    {
+      from: customizations.fsaStyleFontsPath,
+      to: './fonts/'
     }
   ])
 );
