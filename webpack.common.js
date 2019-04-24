@@ -215,6 +215,14 @@ module.exports.plugins = WebpackPages.AddPages( './src/pages/' );
 module.exports.plugins.push(
   new CopyWebpackPlugin([
     {
+      from: './src/img/',
+      to: './img/'
+    },
+    {
+      from: './src/fonts/',
+      to: './fonts/'
+    },
+    {
       from: customizations.fsaStyleImgPath,
       to: './img/'
     },
