@@ -182,7 +182,8 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: '../img/',
+              publicPath: '../img',
+              outputPath: '../dist/img/',
               name: '[name].[ext]',
               limit: 100000
             }
@@ -195,7 +196,8 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: '../fonts/',
+              publicPath: '../fonts/',
+              outputPath: '../dist/fonts/',
               name: '[name].[ext]',
               limit: 100000
             }
@@ -209,6 +211,7 @@ module.exports = {
 // Creates array for HTMLWebpackPlugin pages based on files in directory
 module.exports.plugins = WebpackPages.AddPages( './src/pages/' );
 
+
 module.exports.plugins.push(
   new CopyWebpackPlugin([
     {
@@ -221,6 +224,7 @@ module.exports.plugins.push(
     }
   ])
 );
+
 
 module.exports.plugins.push(
   new MiniCssExtractPlugin({
