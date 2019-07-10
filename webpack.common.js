@@ -163,8 +163,8 @@ module.exports = {
             options: {
               vars: {
                 // below uses site absolute path
-                'font-path': path.join(basePath, 'node_modules/fsa-style/src/fonts').replace(new RegExp('\\' + path.sep, 'g'), '/'),
-                'image-path': path.join(basePath, 'node_modules/fsa-style/src/img').replace(new RegExp('\\' + path.sep, 'g'), '/')
+                'font-path': JSON.stringify(path.join(basePath, 'node_modules/fsa-style/src/fonts').replace(new RegExp('\\' + path.sep, 'g'), '/')),
+                'image-path': JSON.stringify(path.join(basePath, 'node_modules/fsa-style/src/img').replace(new RegExp('\\' + path.sep, 'g'), '/'))
               }
             }
           },
