@@ -12,12 +12,20 @@
     <div class="fsa-section">
       <div class="fsa-section__bd">
 
-        <h1>Select a Day</h1>
+        <h1>Date Picker Example</h1>
 
         <div>
+          <p>
 
+          {{> ../components/date-picker/date-picker
+            FD_ID="date-picker-basic"
+            FD_LABEL="Select a Date"
+            FD_MESSAGE="Used to select a date from a calendar"
+            FD_HELP_ID="date-picker-basic__help"
+            FD_HELP="Example 05/15/2015"
+          }}
           
-          
+          </p>
         </div>
 
       </div><!-- section_bg -->
@@ -34,6 +42,14 @@
   {{#*inline "scripts-block"}}
 
     {{> ../includes/scripts }}
+    
+    <script>
+      // create object that will be used by date-picker in main.js
+      var datePickerOne = {
+        formElements: { "date-picker-basic": "%m/%d/%Y" },
+        disabledDays: [0,0,0,0,0,1,1],
+      };
+    </script>
 
   {{/inline}}
 
