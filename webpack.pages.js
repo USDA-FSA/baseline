@@ -1,21 +1,27 @@
 //
-//
-//
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const HTMLBeautifyPlugin = require('html-beautify-webpack-plugin');
 const path = require('path');
-const fs = require('fs');
+//const fs = require('fs');
+const recursive = require('recursive-readdir');
 
-function addPages(dir){
+function addPages( dir ){
 
-  var plugins = [];
+  const plugins = [];
 
-  fs.readdirSync(dir).forEach (function(file) {
+  const addToPlugins = function( fn ){
 
-    var fn = file.split('.')[0];
-    var newTitle = fn;
-    var newTemplate = dir + file;
-    var newFilename = path.resolve(__dirname, "./dist/"+ fn +".html" );
-
+    var fullPath = path.resolve(fn).replace(new RegExp('\\' + path.sep, 'g'), '/');
+    var shortPath = fullPath.split('pages/')[1].split('.')[0];
+    var splitPathArray = shortPath.split('/');
+    var filename = splitPathArray.length > 1 ? splitPathArray[splitPathArray.length - 1] : shortPath;
+    //
+    var newTitle = filename;
+    var newTemplate = dir + shortPath + '.hbs';
+    var newFilename = path.resolve(__dirname, "./dist/" + shortPath +".html" );
+    //var newFilename = "./dist/" + shortPath + ".html";
+    //console.log( newTitle + ' - ' + newTemplate + ' - ' + newFilename);
+    
     plugins.push(
       new HTMLWebpackPlugin(
         {
@@ -26,10 +32,18 @@ function addPages(dir){
         }
       )
     );
-  });
 
-  return plugins;
-   
+  };
+
+  recursive( dir,
+    function(err, files){
+      
+      files.map( addToPlugins ); 
+
+      return plugins;
+    }
+  );
+
 }
 
 module.exports = {

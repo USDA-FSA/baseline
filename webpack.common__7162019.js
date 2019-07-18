@@ -6,8 +6,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLBeautifyPlugin = require('html-beautify-webpack-plugin');
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const recursive = require('recursive-readdir');
-
 //const StyleLintPlugin = require('stylelint-webpack-plugin');
 //const HandlebarsWebpackPlugin = require('handlebars-webpack-plugin');
 
@@ -43,7 +41,7 @@ const postCssLoader = {
 };
 
 
-const exportsObject = {
+module.exports = {
 
   plugins: [],
 
@@ -55,10 +53,6 @@ const exportsObject = {
       customizations.fsaStyleJSPath,
       './src/index.js'
     ]
-  },
-
-  output: {
-    publicPath: '/',
   },
 
   resolve: {
@@ -218,108 +212,36 @@ const exportsObject = {
   }
 };
 
-
 function addToPlugins( plugin ){
-  console.log(plugin);
-  exportsObject.plugins.push( plugin );
+  module.exports.plugins.push( plugin );
 }
-
-/*
-
-Commented out to place these two Plugins within the Promise Chain
-
-addToPlugins(
-  new MiniCssExtractPlugin({
-    // Options similar to the same options in webpackOptions.output
-    // both options are optional
-    filename: "css/[name].css",
-    chunkFilename: "[name].css"
-  })
-);
-
-addToPlugins(
-  new CopyWebpackPlugin([
-    {
-      from: './src/img/',
-      to: './img/'
-    },
-    {
-      from: './src/fonts/',
-      to: './fonts/'
-    },
-    {
-      from: customizations.fsaStyleImgPath,
-      to: './img/'
-    },
-    {
-      from: customizations.fsaStyleFontsPath,
-      to: './fonts/'
-    }
-  ])
-);
-
-*/
-
-function addPages( dir ){
-
-  const plugins = [];
-
-  function addPlugin( fn ){
-
-
-    var fullPath = path.resolve(fn).replace(new RegExp('\\' + path.sep, 'g'), '/');
-    var shortPath = fullPath.split('pages/')[1].split('.')[0];
-    var splitPathArray = shortPath.split('/');
-    var filename = splitPathArray.length > 1 ? splitPathArray[splitPathArray.length - 1] : shortPath;
-    //
-    var newTitle = filename;
-    var newTemplate = dir + shortPath + '.hbs';
-    var newFilename = path.resolve(__dirname, "./dist/" + shortPath +".html" );
-    //var newFilename = "./dist/" + shortPath + ".html";
-    //console.log( newTitle + ' - ' + newTemplate + ' - ' + newFilename);
-    
-    addToPlugins(
-    //plugins.push( 
-      new HTMLWebpackPlugin(
-        {
-          "title" : newTitle,
-          "template" : newTemplate,
-          "filename" : newFilename,
-          "inject" : "body"
-        }
-      )
-    );
-
-  };
-
-  recursive( dir,
-    function(err, files){
-
-      return files.map( addPlugin );
-    
-    }
-  );
-
-}
-
-//////
 
 var promise = new Promise(
   function(fullfill, reject){
-    
-    // Perform recursive mapping of HBS files and directories
-    fullfill( addPages( './src/pages/' ) );
+    fullfill( 
+      
+      //addToPlugins( WebpackPages.AddPages('./src/pages/') )
+      addToPlugins( 
+        new HTMLWebpackPlugin(
+          {
+            "title" : "Casey Rules",
+            "template" : "./src/pages/reports/index.hbs",
+            "filename" : "C:/softwaredistribution/fpacdev/DEV/FSA-Prototype-Kit/dist/reports/index.html",
+            "inject" : "body"
+          }
+        )
+      )
 
+    );
 }).then( function(result){
-  
-  return new Promise(
     
+  return new Promise(
+
     function(fullfill, reject){
       
-      console.log("??? "+result);
-      //addToPlugins( result );
+      console.log(result);
+      addToPlugins( result );
       
-      // Add HTMLBeautifyPlugin plugin AFTER adding HTMLWebpackPlugin plugins
       fullfill(
         
         new HTMLBeautifyPlugin({
@@ -337,38 +259,16 @@ var promise = new Promise(
         })
 
       );
-      
-    }
-  );
-}).then( function(result){
-    
-  return new Promise(
-
-    function(fullfill, reject){
-      
-      //console.log(result);
-      addToPlugins( result );
-      
-      fullfill(
-        new MiniCssExtractPlugin({
-          // Options similar to the same options in webpackOptions.output
-          // both options are optional
-          filename: "css/[name].css",
-          chunkFilename: "[name].css"
-        })
-      );
-      
     }
 
   );
-
 }).then( function(result){
   
   return new Promise(
     
     function(fullfill, reject){
       
-      //console.log(result);
+      console.log(result);
       addToPlugins( result );
 
       fullfill(
@@ -397,19 +297,83 @@ var promise = new Promise(
 }).then( function(result){
   
   return new Promise(
-
+    
     function(fullfill, reject){
       
+      console.log(result);
       addToPlugins( result );
-      
-      // Not sure if this fullfill() is needed here
-      fullfill(
-        console.log("success " + exportsObject.plugins)
-      );
-      
-    }
 
+      fullfill(
+        new MiniCssExtractPlugin({
+          // Options similar to the same options in webpackOptions.output
+          // both options are optional
+          filename: "css/[name].css",
+          chunkFilename: "[name].css"
+        })
+      )
+    }
+  );
+}).then( function(result){
+  
+  return new Promise(
+    
+    function(fullfill, reject){
+      
+      console.log(result);
+
+      addToPlugins( result );
+    
+    }
   );
 });
 
-module.exports = exportsObject;
+// Creates array for HTMLWebpackPlugin pages based on files in directory
+//const pages = WebpackPages.AddPages('./src/pages/').map( addToPlugins );
+
+/*
+addToPlugins(
+  new HTMLBeautifyPlugin({
+    config: {
+      html: {
+        end_with_newline: true,
+        indent_size: 2,
+        indent_with_tabs: true,
+        indent_inner_html: true,
+        preserve_newlines: true,
+        unformatted: ['p', 'i', 'b', 'span']
+      }
+    },
+    replace: [ ' type="text/javascript"' ]
+  })
+);
+
+addToPlugins(
+  new CopyWebpackPlugin([
+    {
+      from: './src/img/',
+      to: './img/'
+    },
+    {
+      from: './src/fonts/',
+      to: './fonts/'
+    },
+    {
+      from: customizations.fsaStyleImgPath,
+      to: './img/'
+    },
+    {
+      from: customizations.fsaStyleFontsPath,
+      to: './fonts/'
+    }
+  ])
+);
+
+addToPlugins(
+  new MiniCssExtractPlugin({
+    // Options similar to the same options in webpackOptions.output
+    // both options are optional
+    filename: "css/[name].css",
+    chunkFilename: "[name].css"
+  })
+);
+*/
