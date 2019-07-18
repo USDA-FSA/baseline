@@ -16,7 +16,7 @@ const WebpackPages = require('./webpack.pages.js');
 const basePath = process.cwd();
 
 let customizations = {
-  
+
   fsaStyleImgPath: path.join(basePath, 'node_modules/fsa-style/src/img/'),
   fsaStyleFontsPath: path.join(basePath, 'node_modules/fsa-style/src/fonts/'),
   fsaStyleSCSSPath: path.join(basePath, 'node_modules/fsa-style/src/stylesheets/fsa-style.scss'),
@@ -33,12 +33,12 @@ styleArray.push(customizations.mainStylePath);
 const postCssLoader = {
   'loader': 'postcss-loader',
   'options': {
-      'ident': 'extracted',
-      'sourceMap': true,
-      'plugins': [
-          require('pixrem')(), // add fallbacks for rem units
-          require('autoprefixer')({ browsers: 'last 2 versions' }) // add vendor prefixes
-      ]
+    'ident': 'extracted',
+    'sourceMap': true,
+    'plugins': [
+      require('pixrem')(), // add fallbacks for rem units
+      require('autoprefixer')({browsers: 'last 2 versions'}) // add vendor prefixes
+    ]
   }
 };
 
@@ -48,7 +48,7 @@ const exportsObject = {
   plugins: [],
 
   devtool: 'source-map',
-  
+
   entry: {
     'main': [
       './src/stylesheets/base.scss',
@@ -89,7 +89,7 @@ const exportsObject = {
             query: {
               inlineRequires: '\/img\/',
               partialDirs: [
-                  path.join(__dirname, 'src', '/**/')
+                path.join(__dirname, 'src', '/**/')
               ]
             }
           }
@@ -147,10 +147,10 @@ const exportsObject = {
         'include': styleArray,
         'test': /\.css$/,
         'use': [
-            MiniCssExtractPlugin.loader,
-            'css-loader',
-            postCssLoader
-          ]
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          postCssLoader
+        ]
       },
       {
         'include': styleArray,
@@ -166,7 +166,7 @@ const exportsObject = {
               'sourceMap': true,
               'precision': 8,
               'includePaths': []
-              }
+            }
           },
           {
             loader: "@epegzz/sass-vars-loader",
@@ -219,9 +219,9 @@ const exportsObject = {
 };
 
 
-function addToPlugins( plugin ){
+function addToPlugins(plugin) {
   console.log(plugin);
-  exportsObject.plugins.push( plugin );
+  exportsObject.plugins.push(plugin);
 }
 
 /*
@@ -260,156 +260,88 @@ addToPlugins(
 
 */
 
-function addPages( dir ){
+const plugins = [];
 
-  const plugins = [];
-
-  function addPlugin( fn ){
+function addPlugin(fn) {
 
 
-    var fullPath = path.resolve(fn).replace(new RegExp('\\' + path.sep, 'g'), '/');
-    var shortPath = fullPath.split('pages/')[1].split('.')[0];
-    var splitPathArray = shortPath.split('/');
-    var filename = splitPathArray.length > 1 ? splitPathArray[splitPathArray.length - 1] : shortPath;
-    //
-    var newTitle = filename;
-    var newTemplate = dir + shortPath + '.hbs';
-    var newFilename = path.resolve(__dirname, "./dist/" + shortPath +".html" );
-    //var newFilename = "./dist/" + shortPath + ".html";
-    //console.log( newTitle + ' - ' + newTemplate + ' - ' + newFilename);
-    
-    addToPlugins(
-    //plugins.push( 
-      new HTMLWebpackPlugin(
-        {
-          "title" : newTitle,
-          "template" : newTemplate,
-          "filename" : newFilename,
-          "inject" : "body"
-        }
-      )
+  var fullPath = path.resolve(fn).replace(new RegExp('\\' + path.sep, 'g'), '/');
+  var shortPath = fullPath.split('pages/')[1].split('.')[0];
+  var splitPathArray = shortPath.split('/');
+  var filename = splitPathArray.length > 1 ? splitPathArray[splitPathArray.length - 1] : shortPath;
+  //
+  var newTitle = filename;
+  var newTemplate = './src/pages/' + shortPath + '.hbs';
+  var newFilename = path.resolve(__dirname, "./dist/" + shortPath + ".html");
+  //var newFilename = "./dist/" + shortPath + ".html";
+  //console.log( newTitle + ' - ' + newTemplate + ' - ' + newFilename);
+
+  addToPlugins(
+    //plugins.push(
+    new HTMLWebpackPlugin(
+      {
+        "title": newTitle,
+        "template": newTemplate,
+        "filename": newFilename,
+        "inject": "body"
+      }
+    )
+  );
+
+};
+
+recursive('./src/pages/',
+  function (err, files) {
+
+    console.log('files ********: ' + JSON.stringify(files));
+    files.map(addPlugin);
+
+    console.log("??? ");
+    addToPlugins(new HTMLBeautifyPlugin({
+        config: {
+          html: {
+            end_with_newline: true,
+            indent_size: 2,
+            indent_with_tabs: true,
+            indent_inner_html: true,
+            preserve_newlines: true,
+            unformatted: ['p', 'i', 'b', 'span']
+          }
+        },
+        replace: [' type="text/javascript"']
+      })
     );
 
-  };
+    addToPlugins(new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: "css/[name].css",
+      chunkFilename: "[name].css"
+    }));
 
-  recursive( dir,
-    function(err, files){
+    addToPlugins(new CopyWebpackPlugin([
+      {
+        from: './src/img/',
+        to: './img/'
+      },
+      {
+        from: './src/fonts/',
+        to: './fonts/'
+      },
+      {
+        from: customizations.fsaStyleImgPath,
+        to: './img/'
+      },
+      {
+        from: customizations.fsaStyleFontsPath,
+        to: './fonts/'
+      }
+    ]));
 
-      return files.map( addPlugin );
-    
-    }
-  );
+    console.log("success " + exportsObject.plugins);
 
-}
+    module.exports = exportsObject;
+  }
+);
 
 //////
-
-var promise = new Promise(
-  function(fullfill, reject){
-    
-    // Perform recursive mapping of HBS files and directories
-    fullfill( addPages( './src/pages/' ) );
-
-}).then( function(result){
-  
-  return new Promise(
-    
-    function(fullfill, reject){
-      
-      console.log("??? "+result);
-      //addToPlugins( result );
-      
-      // Add HTMLBeautifyPlugin plugin AFTER adding HTMLWebpackPlugin plugins
-      fullfill(
-        
-        new HTMLBeautifyPlugin({
-          config: {
-            html: {
-              end_with_newline: true,
-              indent_size: 2,
-              indent_with_tabs: true,
-              indent_inner_html: true,
-              preserve_newlines: true,
-              unformatted: ['p', 'i', 'b', 'span']
-            }
-          },
-          replace: [ ' type="text/javascript"' ]
-        })
-
-      );
-      
-    }
-  );
-}).then( function(result){
-    
-  return new Promise(
-
-    function(fullfill, reject){
-      
-      //console.log(result);
-      addToPlugins( result );
-      
-      fullfill(
-        new MiniCssExtractPlugin({
-          // Options similar to the same options in webpackOptions.output
-          // both options are optional
-          filename: "css/[name].css",
-          chunkFilename: "[name].css"
-        })
-      );
-      
-    }
-
-  );
-
-}).then( function(result){
-  
-  return new Promise(
-    
-    function(fullfill, reject){
-      
-      //console.log(result);
-      addToPlugins( result );
-
-      fullfill(
-
-        new CopyWebpackPlugin([
-          {
-            from: './src/img/',
-            to: './img/'
-          },
-          {
-            from: './src/fonts/',
-            to: './fonts/'
-          },
-          {
-            from: customizations.fsaStyleImgPath,
-            to: './img/'
-          },
-          {
-            from: customizations.fsaStyleFontsPath,
-            to: './fonts/'
-          }
-        ])
-      );      
-    }
-  );
-}).then( function(result){
-  
-  return new Promise(
-
-    function(fullfill, reject){
-      
-      addToPlugins( result );
-      
-      // Not sure if this fullfill() is needed here
-      fullfill(
-        console.log("success " + exportsObject.plugins)
-      );
-      
-    }
-
-  );
-});
-
-module.exports = exportsObject;
