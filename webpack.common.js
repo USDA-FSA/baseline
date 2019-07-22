@@ -290,57 +290,59 @@ function addPlugin(fn) {
 
 };
 
-recursive('./src/pages/',
-  function (err, files) {
+module.exports = new Promise(function(resolve, reject) {
+    recursive('./src/pages/',
+    function (err, files) {
 
-    console.log('files ********: ' + JSON.stringify(files));
-    files.map(addPlugin);
+      console.log('files ********: ' + JSON.stringify(files));
+      files.map(addPlugin);
 
-    console.log("??? ");
-    addToPlugins(new HTMLBeautifyPlugin({
-        config: {
-          html: {
-            end_with_newline: true,
-            indent_size: 2,
-            indent_with_tabs: true,
-            indent_inner_html: true,
-            preserve_newlines: true,
-            unformatted: ['p', 'i', 'b', 'span']
-          }
+      console.log("??? ");
+      addToPlugins(new HTMLBeautifyPlugin({
+          config: {
+            html: {
+              end_with_newline: true,
+              indent_size: 2,
+              indent_with_tabs: true,
+              indent_inner_html: true,
+              preserve_newlines: true,
+              unformatted: ['p', 'i', 'b', 'span']
+            }
+          },
+          replace: [' type="text/javascript"']
+        })
+      );
+
+      addToPlugins(new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: "css/[name].css",
+        chunkFilename: "[name].css"
+      }));
+
+      addToPlugins(new CopyWebpackPlugin([
+        {
+          from: './src/img/',
+          to: './img/'
         },
-        replace: [' type="text/javascript"']
-      })
-    );
+        {
+          from: './src/fonts/',
+          to: './fonts/'
+        },
+        {
+          from: customizations.fsaStyleImgPath,
+          to: './img/'
+        },
+        {
+          from: customizations.fsaStyleFontsPath,
+          to: './fonts/'
+        }
+      ]));
 
-    addToPlugins(new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: "css/[name].css",
-      chunkFilename: "[name].css"
-    }));
+      console.log("success " + exportsObject.plugins);
 
-    addToPlugins(new CopyWebpackPlugin([
-      {
-        from: './src/img/',
-        to: './img/'
-      },
-      {
-        from: './src/fonts/',
-        to: './fonts/'
-      },
-      {
-        from: customizations.fsaStyleImgPath,
-        to: './img/'
-      },
-      {
-        from: customizations.fsaStyleFontsPath,
-        to: './fonts/'
-      }
-    ]));
-
-    console.log("success " + exportsObject.plugins);
-
-    module.exports = exportsObject;
+      resolve(exportsObject);
+    })
   }
 );
 
