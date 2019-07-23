@@ -11,8 +11,6 @@ const recursive = require('recursive-readdir');
 //const StyleLintPlugin = require('stylelint-webpack-plugin');
 //const HandlebarsWebpackPlugin = require('handlebars-webpack-plugin');
 
-const WebpackPages = require('./webpack.pages.js');
-
 const basePath = process.cwd();
 
 let customizations = {
@@ -41,7 +39,6 @@ const postCssLoader = {
     ]
   }
 };
-
 
 const exportsObject = {
 
@@ -225,45 +222,9 @@ function addToPlugins(plugin) {
 }
 
 /*
-
-Commented out to place these two Plugins within the Promise Chain
-
-addToPlugins(
-  new MiniCssExtractPlugin({
-    // Options similar to the same options in webpackOptions.output
-    // both options are optional
-    filename: "css/[name].css",
-    chunkFilename: "[name].css"
-  })
-);
-
-addToPlugins(
-  new CopyWebpackPlugin([
-    {
-      from: './src/img/',
-      to: './img/'
-    },
-    {
-      from: './src/fonts/',
-      to: './fonts/'
-    },
-    {
-      from: customizations.fsaStyleImgPath,
-      to: './img/'
-    },
-    {
-      from: customizations.fsaStyleFontsPath,
-      to: './fonts/'
-    }
-  ])
-);
-
+  Method used to perform string manipulation and add a plugin based on Handlebars templates converting to HTML pages
 */
-
-const plugins = [];
-
-function addPlugin(fn) {
-
+function addPagesPlugins(fn) {
 
   var fullPath = path.resolve(fn).replace(new RegExp('\\' + path.sep, 'g'), '/');
   var shortPath = fullPath.split('pages/')[1].split('.')[0];
@@ -273,11 +234,8 @@ function addPlugin(fn) {
   var newTitle = filename;
   var newTemplate = './src/pages/' + shortPath + '.hbs';
   var newFilename = path.resolve(__dirname, "./dist/" + shortPath + ".html");
-  //var newFilename = "./dist/" + shortPath + ".html";
-  //console.log( newTitle + ' - ' + newTemplate + ' - ' + newFilename);
 
   addToPlugins(
-    //plugins.push(
     new HTMLWebpackPlugin(
       {
         "title": newTitle,
@@ -290,59 +248,62 @@ function addPlugin(fn) {
 
 };
 
-module.exports = new Promise(function(resolve, reject) {
+module.exports = new Promise(
+  function(resolve, reject) {
+    
+    // recursively map files/folders in Pages directory
     recursive('./src/pages/',
-    function (err, files) {
+      function (err, files) {
 
-      console.log('files ********: ' + JSON.stringify(files));
-      files.map(addPlugin);
+        files.map( addPagesPlugins );
 
-      console.log("??? ");
-      addToPlugins(new HTMLBeautifyPlugin({
-          config: {
-            html: {
-              end_with_newline: true,
-              indent_size: 2,
-              indent_with_tabs: true,
-              indent_inner_html: true,
-              preserve_newlines: true,
-              unformatted: ['p', 'i', 'b', 'span']
+        // Add remaining Plugins to module.exports object
+        addToPlugins(new HTMLBeautifyPlugin({
+            config: {
+              html: {
+                end_with_newline: true,
+                indent_size: 2,
+                indent_with_tabs: true,
+                indent_inner_html: true,
+                preserve_newlines: true,
+                unformatted: ['p', 'i', 'b', 'span']
+              }
+            },
+            replace: [' type="text/javascript"']
+          })
+        );
+
+        addToPlugins(new MiniCssExtractPlugin({
+          // Options similar to the same options in webpackOptions.output
+          // both options are optional
+          filename: "css/[name].css",
+          chunkFilename: "[name].css"
+        }));
+
+        addToPlugins(
+          new CopyWebpackPlugin([
+            {
+              from: './src/img/',
+              to: './img/'
+            },
+            {
+              from: './src/fonts/',
+              to: './fonts/'
+            },
+            {
+              from: customizations.fsaStyleImgPath,
+              to: './img/'
+            },
+            {
+              from: customizations.fsaStyleFontsPath,
+              to: './fonts/'
             }
-          },
-          replace: [' type="text/javascript"']
-        })
-      );
+          ])
+        );
 
-      addToPlugins(new MiniCssExtractPlugin({
-        // Options similar to the same options in webpackOptions.output
-        // both options are optional
-        filename: "css/[name].css",
-        chunkFilename: "[name].css"
-      }));
-
-      addToPlugins(new CopyWebpackPlugin([
-        {
-          from: './src/img/',
-          to: './img/'
-        },
-        {
-          from: './src/fonts/',
-          to: './fonts/'
-        },
-        {
-          from: customizations.fsaStyleImgPath,
-          to: './img/'
-        },
-        {
-          from: customizations.fsaStyleFontsPath,
-          to: './fonts/'
-        }
-      ]));
-
-      console.log("success " + exportsObject.plugins);
-
-      resolve(exportsObject);
-    })
+        resolve( exportsObject );
+      }
+    )
   }
 );
 

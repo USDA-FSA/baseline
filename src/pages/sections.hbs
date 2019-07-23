@@ -3,8 +3,8 @@
   {{#*inline "header-block"}}
     <header>
       {{> ../components/tophat/tophat }}
-      {{> ../components/header-app/header-app }}
-      {{> ../components/global-nav/global-nav NAV2_ACTIVE=true }}
+      {{> ../components/header-app/header-app URL_PREFIX="./" }}
+      {{> ../components/global-nav/global-nav NAV2_ACTIVE=true URL_PREFIX="./" }}
     </header>
   {{/inline}}
 
@@ -120,6 +120,14 @@
         </div>
       </div>
     </div>
+  {{/inline}}
+
+  {{#*inline "footer-block"}}
+    <footer>
+      {{> ../components/footer/footer-topper }}
+      {{> ../components/footer/footer-footer URL_PREFIX="./" }}
+      {{> ../components/footer/footer-screen-id SCREEN_ID="XYZ-WEB-007" }}
+    </footer>
   {{/inline}}
 
 {{/../layouts/base }}

@@ -28,7 +28,6 @@
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
     "fsa-style": "^2.3.2",
-    "glob": "^7.1.4",
     "handlebars": "^4.0.11",
     "handlebars-loader": "^1.7.0",
     "handlebars-webpack-plugin": "^1.5.0",
