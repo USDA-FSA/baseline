@@ -28,9 +28,6 @@
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
     "fsa-style": "^2.3.2",
-    "handlebars": "^4.0.11",
-    "handlebars-loader": "^1.7.0",
-    "handlebars-webpack-plugin": "^1.5.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "imports-loader": "^0.8.0",
@@ -47,6 +44,9 @@
     "stylelint": "^9.2.1",
     "stylelint-webpack-plugin": "^0.10.5",
     "url-loader": "^1.0.1",
+    "vue-loader": "^15.7.1",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.7.2",
@@ -56,6 +56,7 @@
     "@epegzz/sass-vars-loader": "^4.3.0",
     "html-beautify-webpack-plugin": "^1.0.5",
     "pixrem": "^4.0.1",
-    "sass-resources-loader": "^2.0.0"
+    "sass-resources-loader": "^2.0.0",
+    "vue": "^2.6.10"
   }
 }
