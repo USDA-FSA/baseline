@@ -217,7 +217,6 @@ const exportsObject = {
 
 
 function addToPlugins(plugin) {
-  console.log(plugin);
   exportsObject.plugins.push(plugin);
 }
 
