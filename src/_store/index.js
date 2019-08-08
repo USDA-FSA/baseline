@@ -4,9 +4,9 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 
-Vue.use(Vuex);
+Vue.use( Vuex );
 
-export default new Vuex.Store({
+export const store = new Vuex.Store({
   
       state: {
 
@@ -24,27 +24,32 @@ export default new Vuex.Store({
       },
 
       getters: {
-        user: state => {
-          return state.user
-        }
+        
+        fatUsers: state => {
+          var fatUsers = state.users.map( user => {
+            return {
+              name: 'Fat ' + user.name,
+              email: user.email
+            }
+          });
+          return fatUsers;
+        },
+
       },
       
       actions: {
-        setUserName(context, name){
-          context.commit('SET_USER_NAME', name);
-        },
-        setUserEmail(context, email){
-          context.commit('SET_USER_EMAIL', email);
-        }
+
       },
       
       mutations: {
-        SET_USER_NAME(state, name){
-          state.user.name = name;
+
+        killExtention: state => {
+          state.users.forEach( user => {
+             user.email = user.email.split('.com')[0];
+          });
+          return killExt;
         },
-        SET_USER_EMAIL(state, email){
-          state.user.email = email;
-        }
+
       }
 
 
