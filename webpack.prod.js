@@ -10,53 +10,51 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const common = require('./webpack.common.js');
 
-module.exports = async function buildConfig() {
-  return merge(await common, {
+module.exports = merge(common, {
 
-    mode: 'production',
+  mode: 'production',
 
-    optimization: {
-      minimize: true
-    },
+  optimization: {
+    minimize: true
+  },
 
-    output: {
-      path: path.resolve('./dist'),
-      filename: '[name].bundle.js'
-    },
+  output: {
+    path: path.resolve('./dist'),
+    filename: '[name].bundle.js'    
+  },
 
-    module: {
-      rules: [
-        {
-          test: /\.css$/,
-          exclude: /node_modules/,
-          use: [
-            MiniCssExtractPlugin.loader,
-            {
-              loader: 'css-loader',
-              options: {minimize: true}
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                plugins: () => [
-                  pixrem({unitPrecision: 3}),
-                  autoprefixer({grid: true})
-                ],
-                sourceMap: true
-              }
-            },
-            'sass-loader'
-          ]
-        }
-      ]
-    },
-
-    plugins: [
-      new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery'
-      }),
-      new CleanWebpackPlugin(['./dist/']),
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {minimize: true}
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () =>  [
+                pixrem ({unitPrecision: 3}),
+                autoprefixer ({grid: true})
+              ],
+              sourceMap: true
+            }
+          },
+          'sass-loader'           
+        ]
+      }
     ]
-  })
-};
+  },
+
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    }),
+    new CleanWebpackPlugin(['./dist/']),
+  ]
+});
