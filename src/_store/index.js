@@ -2,6 +2,7 @@
 
 import Vue from 'vue';
 import Vuex from 'vuex';
+//import { stat } from 'fs';
 
 
 Vue.use( Vuex );
@@ -39,16 +40,42 @@ export const store = new Vuex.Store({
       
       actions: {
 
+        killExtention({ commit }){
+          commit('KILL_EXTENTION');
+        },
+
+        addNewUser({ commit }, user){
+          commit('ADD_NEW_USER', user);
+        }
+        
       },
       
       mutations: {
 
-        killExtention: state => {
-          state.users.forEach( user => {
-             user.email = user.email.split('.com')[0];
+        KILL_EXTENTION( state ){
+          let kx = state.users.forEach( user => {
+            user.email = user.email.split('.com')[0];
           });
-          return killExt;
+          return kx;
         },
+
+        ADD_NEW_USER( state, user ){
+          state.users.push( user );
+        },
+
+        /*
+        killExtention: state => {
+          let kx = state.users.forEach( user => {
+            user.email = user.email.split('.com')[0];
+          });
+          return kx;
+        },
+        */
+
+
+        
+    
+
 
       }
 

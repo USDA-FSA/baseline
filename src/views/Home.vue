@@ -16,7 +16,7 @@
         <p>{{ fatuser.email }}</p>
       </li>
     </ul>
-    <button v-on:click="killExtention">Kill Extention</button>
+    <button v-on:click="killExt">Kill Extention</button>
     <div>
       <form @submit.prevent="handleSubmit">
 
@@ -55,12 +55,14 @@ export default {
 
   methods: {
 
-    killExtention: function(){
-      this.$store.commit('killExtention');
+    killExt: function(){
+      this.$store.dispatch('killExtention');
+      //.commit('killExtention');
     },
 
     handleSubmit: function(e){
-      alert(e);
+      let user = {name: e.target.name.value, email: e.target.email.value};
+      this.$store.dispatch('addNewUser', user );
     }
   }
 }
