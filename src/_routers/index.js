@@ -5,6 +5,7 @@ import Router from 'vue-router';
 
 import Home from '../views/Home';
 import Boilerplate from '../views/Boilerplate';
+import CropReport from '../views/Reports/CropReport';
 
 Vue.use( Router );
 
@@ -22,14 +23,12 @@ export default new Router({
       component: Boilerplate
     },
 
+    { path: '/reports/crop-report',
+      name: 'crop-report',
+      component: CropReport
+    },
+
     // otherwise redirect to home
     { path: '*', redirect: '/' }
   ]
 });
-/*
-router.beforeEach((to, from, next) => {
-  
-
-  next();
-})
-*/

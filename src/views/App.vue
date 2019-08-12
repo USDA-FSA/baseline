@@ -13,11 +13,12 @@ import Boilerplate from './Boilerplate';
 
 export default {
   name: "app",
+  /*
   components: {
     Home,
     Boilerplate
   },
-  
+  */
   watch: {
     $route (to, from){
         

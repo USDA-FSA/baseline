@@ -2,20 +2,23 @@
 <template>
   <div>
     <navigation></navigation>
-    <h1>Boil the Ocean</h1>
+    <h1>Crop Report</h1>
+    <h4>normal</h4>
     <ul v-for="user in users">
       <li>
         <p>{{ user.name }}</p>
         <p>{{ user.email }}</p>
       </li>
     </ul>
+       
+    </div>
   </div>
 </template>
 
 <script>
-import globalNav from '../components/global-nav';
+import globalNav from '../../components/global-nav';
 
-import { mapState } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
 
@@ -27,6 +30,15 @@ export default {
     ...mapState({
       users: state => state.users.all
     })
+  },
+  
+  methods: {
+
+  },
+
+  created(){
+    this.$store.dispatch('users/getUsersApi');
+    //this.getUsers();
   }
 }
 </script>

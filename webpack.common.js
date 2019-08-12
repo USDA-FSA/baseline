@@ -60,6 +60,13 @@ module.exports = {
     modules: ['node_modules', 'src']
   },
 
+  externals: {
+    // global app config object
+    config: JSON.stringify({
+      apiUrl: 'http://localhost:8888'
+    })
+  },
+
   module: {
     rules: [
 
