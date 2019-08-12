@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <navigation></navigation>
+    <baseLayout></baseLayout>
     <h1>Who Dat?</h1>
     <h4>normal</h4>
     <ul v-for="user in users">
@@ -36,14 +36,14 @@
 </template>
 
 <script>
-import globalNav from '../components/global-nav';
+import baseLayout from './layouts/base';
 
 import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
 
   components: {
-    navigation: globalNav
+    baseLayout: baseLayout
   },
 
   computed: {

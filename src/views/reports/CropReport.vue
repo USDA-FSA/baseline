@@ -1,6 +1,8 @@
 
 <template>
   <div>
+    <tophat></tophat>
+    <headerApp></headerApp>
     <navigation></navigation>
     <h1>Crop Report</h1>
     <h4>normal</h4>
@@ -16,13 +18,18 @@
 </template>
 
 <script>
+import tophat from '../../components/tophat';
+import headerApp from '../../components/header-app';
 import globalNav from '../../components/global-nav';
+
 
 import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
 
   components: {
+    tophat: tophat,
+    headerApp: headerApp,
     navigation: globalNav
   },
 
