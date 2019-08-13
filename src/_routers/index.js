@@ -7,6 +7,7 @@ import Home from '../views/Home';
 import Boilerplate from '../views/Boilerplate';
 import CropReport from '../views/Reports/CropReport';
 
+
 Vue.use( Router );
 
 export default new Router({

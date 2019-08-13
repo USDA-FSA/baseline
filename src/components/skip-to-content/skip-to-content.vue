@@ -1,0 +1,3 @@
+<template>
+  <a class="skipnav" href="#main-content">Skip to main content</a>
+</template>

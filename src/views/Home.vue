@@ -1,49 +1,63 @@
 
 <template>
   <div>
-    <baseLayout></baseLayout>
-    <h1>Who Dat?</h1>
-    <h4>normal</h4>
-    <ul v-for="user in users">
-      <li>
-        <p>{{ user.name }}</p>
-        <p>{{ user.email }}</p>
-      </li>
-    </ul>
-    <hr>
-    <h4>chubby</h4>
-    <ul v-for="fatuser in fatUsers">
-      <li>
-        <p>{{ fatuser.name }}</p>
-        <p>{{ fatuser.email }}</p>
-      </li>
-    </ul>
-    <button v-on:click="killExt">Kill Extention</button>
-    <div>
-      <form @submit.prevent="handleSubmit">
+    <whiteout></whiteout>
+    <baseHeader></baseHeader>
 
-        <label for="name">Name</label>
-        <input name="name">
+    <main id="main-content" tabindex="-1">
+      <div class="fsa-section">
+        <div class="fsa-section__bd">
+        <h1>Who Dat?</h1>
+        <ul v-for="user in users">
+          <li>
+            <p>{{ user.name }} - {{ user.email }}</p>
+          </li>
+        </ul>
+        <hr>
+        <h4>chubby</h4>
+        <ul v-for="fatuser in fatUsers">
+          <li>
+            <p>{{ fatuser.name }} - {{ fatuser.email }}</p>
+          </li>
+        </ul>
+        <button class="fsa-btn fsa-btn--secondary" v-on:click="killExt">Kill Extention</button>
+        <div>
+          <form @submit.prevent="handleSubmit">
 
-        <label for="email">Email</label>
-        <input name="email">
+            <label for="name">Name</label>
+            <input name="name">
 
-        <button type="submit">Set User</button>
+            <label for="email">Email</label>
+            <input name="email">
 
-      </form>
-    </div>
+            <button class="fsa-btn fsa-btn--secondary" type="submit">Set User</button>
+
+          </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <baseFooter></baseFooter>
   </div>
 </template>
 
 <script>
-import baseLayout from './layouts/base';
+// PARTIALS
+import baseHeader from './partials/baseHeader';
+import baseFooter from './partials/baseFooter';
+
+// COMPONENTS
+import whiteout from '../components/whiteout/whiteout';
 
 import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
 
   components: {
-    baseLayout: baseLayout
+    baseHeader: baseHeader,
+    baseFooter: baseFooter,
+    whiteout: whiteout,
   },
 
   computed: {
