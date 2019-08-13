@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import baseHeader from '../partials/baseHeader';
-import baseFooter from '../partials/baseFooter';
+import baseHeader from '../../partials/baseHeader';
+import baseFooter from '../../partials/baseFooter';
 
 import { mapState, mapGetters, mapActions } from 'vuex';
 

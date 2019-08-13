@@ -13,9 +13,9 @@
 
 <script>
 
-import tophat from '../../components/tophat/tophat';
-import headerApp from '../../components/header-app/header-app';
-import globalNav from '../../components/global-nav/global-nav';
+import tophat from '../components/tophat/tophat';
+import headerApp from '../components/header-app/header-app';
+import globalNav from '../components/global-nav/global-nav';
 
 export default {
 

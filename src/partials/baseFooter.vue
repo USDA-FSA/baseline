@@ -15,10 +15,10 @@
 
 <script>
 
-import footerTopper from '../../components/footer/footer-topper';
-import footerFooter from '../../components/footer/footer-footer';
-import footerScreenId from '../../components/footer/footer-screen-id';
-import hiddenItems from '../../components/hidden/hidden-items';
+import footerTopper from '../components/footer/footer-topper';
+import footerFooter from '../components/footer/footer-footer';
+import footerScreenId from '../components/footer/footer-screen-id';
+import hiddenItems from '../components/hidden/hidden-items';
 
 export default {
 
