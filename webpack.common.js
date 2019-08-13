@@ -229,7 +229,7 @@ function addPagesPlugins(fn) {
   var shortPath = fullPath.split('pages/')[1].split('.')[0];
   var splitPathArray = shortPath.split('/');
   var filename = splitPathArray.length > 1 ? splitPathArray[splitPathArray.length - 1] : shortPath;
-  //
+  
   var newTitle = filename;
   var newTemplate = './src/pages/' + shortPath + '.hbs';
   var newFilename = path.resolve(__dirname, "./dist/" + shortPath + ".html");
@@ -305,5 +305,3 @@ module.exports = new Promise(
     )
   }
 );
-
-//////
