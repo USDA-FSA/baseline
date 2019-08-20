@@ -9,6 +9,9 @@
         <div class="fsa-section__bd">
         <h1>Who Dat?</h1>
         <div>
+          <card NAME="This is cool" :CARDDATA="cardData"></card>
+        </div>
+        <div>
           <form @submit.prevent="handleSubmit">
 
             <field
@@ -106,6 +109,7 @@ import baseFooter from '../partials/baseFooter';
 
 // COMPONENTS
 import field from '../components/field/field';
+import card from '../components/card/card';
 import whiteout from '../components/whiteout/whiteout';
 
 import { mapState, mapGetters, mapActions } from 'vuex';
@@ -115,13 +119,31 @@ export default {
   components: {
     baseHeader: baseHeader,
     baseFooter: baseFooter,
+    card: card,
     field: field,
     whiteout: whiteout,
   },
 
+  data(){
+    return {
+      cardData: [
+        {
+          label: "Employer",
+          desc: "USDA"
+        },
+        { 
+          label: "Position",
+          desc: "Accountant"
+        }
+      ]
+    }
+  },
+
+
   computed: {
     ...mapState({
-      users: state => state.users.all
+      navigationData: state => state.navigation.all,
+      users: state => state.users.all,
     }),
     ...mapGetters('users', {
       fatUsers: 'fatUsers'
@@ -156,6 +178,7 @@ export default {
   },
 
   created(){
+    //this.$store.dispatch('navigation/getNavApi');
     this.$store.dispatch('users/getUsersApi');
     //this.getUsers();
   }

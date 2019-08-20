@@ -36,8 +36,8 @@ export default {
     HELP: String,
     ARIA_REQUIRED: String,
     ARIA_DESCRIBEDBY: String,
-    HAS_MESSAGE: Boolean,
-    HAS_HELP: Boolean
+    HAS_MESSAGE: String,
+    HAS_HELP: String
     
   },
 

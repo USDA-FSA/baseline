@@ -2,10 +2,9 @@
   <nav>
     <div class="fsa-nav-global">
       <div class="fsa-nav-global__bd">
-        <!-- loop here -->
-        <ul class="fsa-nav-global__list" aria-label="Primary Navigation" id="primary-navigation">
-          <li v-for="item in items" class="fsa-nav-global__list-item">
-            <div  v-if="item.hasChildren == true">
+        <ul v-for="item in items" class="fsa-nav-global__list" aria-label="Primary Navigation" id="primary-navigation">
+          <li class="fsa-nav-global__list-item">
+            <div v-if="item.hasChildren">
               <button class="fsa-nav-global__link fsa-nav-global__link--has-sub-menu" type="button" aria-expanded="false" aria-controls="item.label">
                 <span class="fsa-nav-global__text" id="item.path">{{item.label}}</span>
               </button>
@@ -18,14 +17,14 @@
                 </div>
               </div>
             </div>
-            <div v-else="false">
-              <router-link :to='item.path' class="fsa-nav-global__link">
-              <span class="fsa-nav-global__text">{{item.label}}</span>
-            </router-link> 
+            <div v-else>
+              <router-link to='item.path' class="fsa-nav-global__link">
+                <span class="fsa-nav-global__text">{{item.label}}</span>
+              </router-link>              
             </div>
           </li>
+
         </ul>
-        <!-- end loop -->
       </div>
     </div>
   </nav>
@@ -37,13 +36,10 @@ export default {
   props: {
     NAV_DATA: Array,
   },
-
-  computed: {
-    
-    items: function(){
-      return this.NAV_DATA;
+  data(){
+    return {
+      items: this.NAV_DATA
     }
-    
   }
 
 }
