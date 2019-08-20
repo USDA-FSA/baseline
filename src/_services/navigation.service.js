@@ -35,6 +35,12 @@ const apiData = [
         path: "/reports/producer-report",
         hasChild: "false",
         children: [],
+      },
+      {
+        label: "Weather Report",
+        path: "/reports/weather-report",
+        hasChild: "false",
+        children: [],
       }
     ],
   },
