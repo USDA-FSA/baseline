@@ -17,8 +17,8 @@
       :data-behavior="BEHAVIOR"
       :aria-describedby="ARIA_DESCRIBEDBY"
       >
-    <slot v-slot:help></slot>
-    <slot v-slot:message></slot>
+    <slot v-if="HAS_HELP" name="help"></slot>
+    <slot v-if="HAS_MESSAGE" name="message"></slot>
   </div>
 </template>
 <script>
@@ -35,8 +35,17 @@ export default {
     MESSAGE: String,
     HELP: String,
     ARIA_REQUIRED: String,
-    ARIA_DESCRIBEDBY: String
+    ARIA_DESCRIBEDBY: String,
+    HAS_MESSAGE: Boolean,
+    HAS_HELP: Boolean
     
+  },
+
+  data(){
+    return {
+      hasMessge: false,
+      hasHelp: true
+    }
   },
 
   components: {

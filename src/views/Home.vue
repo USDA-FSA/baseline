@@ -21,7 +21,8 @@
               ARIA_REQUIRED="true"
               BEHAVIOR=""
               ARIA_DESCRIBEDBY="name__help"
-              ERROR_FIELD="fsa-field--error"
+              ERROR_FIELD=""
+              HAS_HELP="true"
             >
               
               <template v-slot:labelDescribe>
@@ -29,13 +30,11 @@
               </template>
               <!-- Below 2 Slots should be used with above ARIA_DESCRIBEDBY -->
               <template v-slot:help>
-                <span id="name__help" class="fsa-field__help">Help text goes here</span>
+                <span id="name__help" class="fsa-field__help">Use your full name, please.</span>
               </template>
-              <!--
               <template v-slot:message>
                 <span id="name-id__error-message" class="fsa-field__message" role="alert">Hey, you forgot your own name, silly!</span>
               </template>
-              -->
 
             </field>
 
@@ -49,7 +48,7 @@
               ARIA_REQUIRED="true"
               BEHAVIOR=""
               ARIA_DESCRIBEDBY="email__help"
-              ERROR_FIELD="fsa-field--error"
+              ERROR_FIELD=""
             >
               
               <template v-slot:labelDescribe>
@@ -57,13 +56,11 @@
               </template>
               <!-- Below 2 Slots should be used with above ARIA_DESCRIBEDBY -->
               <template v-slot:help>
-                <span id="email__help" class="fsa-field__help">Help text goes here</span>
+                <span id="email__help" class="fsa-field__help">Only valid emails should be used.</span>
               </template>
-              <!--
               <template v-slot:message>
                 <span id="email__error-message" class="fsa-field__message" role="alert">Hey, you forgot your email address!</span>
               </template>
-              -->
 
             </field>
 
@@ -72,20 +69,28 @@
           </form>
           
         </div>
-        <button class="fsa-btn fsa-btn--secondary" v-on:click="killExt">Kill Extention</button>
-        <ul v-for="user in users">
-          <li>
-            <p>{{ user.name }} - {{ user.email }}</p>
-          </li>
-        </ul>
-        <hr>
-        <h4>chubby</h4>
-        <ul v-for="fatuser in fatUsers">
-          <li>
-            <p>{{ fatuser.name }} - {{ fatuser.email }}</p>
-          </li>
-        </ul>
-        
+        <div>
+            <button class="fsa-btn fsa-btn--secondary" v-on:click="killExt">Kill Extention</button>
+
+            <table class="fsa-table fsa-table--borderless fsa-table--responsive fsa-table--responsive-horizontal fic-inspections fic-inspections--status-filter-is-all" id="inspectionsTable">
+              <caption class="sr-only">Inspections</caption>
+              <thead class="fic-inspections__thead">
+                <tr class="fic-inspections__row--thead">
+                  <th class="fsa-table__th--sticky"><button type="button" class="fsa-table__sort">Full Name</button></th>
+                  <th class="fsa-table__th--sticky"><button type="button" class="fsa-table__sort">Email Address</button></th>
+                  <th class="fsa-table__th--sticky"><button type="button" class="fsa-table__sort">Actions</button></th>
+                </tr>
+              </thead>
+              <tbody class="fic-inspections__tbody" id="pt__progress-alt-1">
+                <tr v-for="user in users" class="fic-inspections__row" data-status="is-complete" data-assignee="assignedto-norm-peterson">
+                  <td aria-label="Name">{{ user.name }}</td>
+                  <td aria-label="Email">{{ user.email }}</td>
+                  <td aria-label="Actions Button"><button class="fsa-btn fsa-btn--secondary">Delete</button></td>
+                </tr>
+              </tbody>
+            </table>
+            
+          </div>  
         </div>
       </div>
     </main>
