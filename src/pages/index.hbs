@@ -128,16 +128,16 @@
                   <span class="fsa-pagination__label fsa-pagination__label--current" aria-current="true">1</span>
                 </li>
                 <li class="fsa-pagination__item">
-                  <a class="fsa-pagination__label" href="link.html">2</a>
+                  <a class="fsa-pagination__label" href="link_ext_">2</a>
                 </li>
                 <li class="fsa-pagination__item" aria-hidden="true">
                   <span class="fsa-pagination__label">…</span>
                 </li>
                 <li class="fsa-pagination__item">
-                  <a class="fsa-pagination__label" href="link.html">120</a>
+                  <a class="fsa-pagination__label" href="link_ext_">120</a>
                 </li>
                 <li class="fsa-pagination__item fsa-pagination__item--next">
-                  <a class="fsa-pagination__label fsa-pagination__label--next" href="link.html">Next</a>
+                  <a class="fsa-pagination__label fsa-pagination__label--next" href="link_ext_">Next</a>
                 </li>
               </ul>
             </div>
@@ -146,9 +146,9 @@
           {{> ../components/stepped-control/stepped-control
             CURRENT_STEP="1"
             TOTAL_STEPS="5"
-            BACK_URL="index.html"
+            BACK_URL="index_ext_"
             BACK_LABEL="Back"
-            CONTINUE_URL="step2.html"
+            CONTINUE_URL="step2_ext_"
             CONTINUE_LABEL="Continue"
             USE_GROWL_ON_CANCEL=true
             GROWL_ID="growl_cancel_steps"
@@ -172,7 +172,7 @@
   {{#*inline "hidden-block"}}
     <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
     {{> ../components/growl/growl-cancel GROWL_ID="growl_cancel_steps" }}
-    {{> ../components/modal/modal MODAL_URL_1="sections.html" }}
+    {{> ../components/modal/modal MODAL_URL_1="sections_ext_" }}
     <!-- /HIDDEN -->
   {{/inline}}
 

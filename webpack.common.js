@@ -6,10 +6,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLBeautifyPlugin = require('html-beautify-webpack-plugin');
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackStringReplacePlugin = require('html-webpack-string-replace-plugin');
 const recursive = require('recursive-readdir');
 
 //const StyleLintPlugin = require('stylelint-webpack-plugin');
 //const HandlebarsWebpackPlugin = require('handlebars-webpack-plugin');
+
+
+const prodExt = "." + process.argv.splice(process.argv.length-1);
 
 const basePath = process.cwd();
 
@@ -53,11 +57,11 @@ const exportsObject = {
       './src/index.js'
     ]
   },
-
+/*
   output: {
     publicPath: '/',
   },
-
+*/
   resolve: {
     modules: ['node_modules', 'src']
   },
@@ -232,7 +236,9 @@ function addPagesPlugins(fn) {
   
   var newTitle = filename;
   var newTemplate = './src/pages/' + shortPath + '.hbs';
-  var newFilename = path.resolve(__dirname, "./dist/" + shortPath + ".html");
+  //var newFilename = path.resolve(__dirname, "./dist/" + shortPath + ".html");
+  // Updated to fix Sharepoint .aspx issue
+  var newFilename = path.resolve(__dirname, "./dist/" + shortPath + prodExt);
 
   addToPlugins(
     new HTMLWebpackPlugin(
@@ -244,7 +250,7 @@ function addPagesPlugins(fn) {
       }
     )
   );
-
+  
 };
 
 module.exports = new Promise(
@@ -270,6 +276,14 @@ module.exports = new Promise(
             },
             replace: [' type="text/javascript"']
           })
+        );
+
+        addToPlugins(
+          new HtmlWebpackStringReplacePlugin(
+            {
+              "_ext_": prodExt
+            }
+          )
         );
 
         addToPlugins(new MiniCssExtractPlugin({
