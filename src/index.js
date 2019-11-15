@@ -7,7 +7,6 @@
 
 // Project-specific styles
 
-
 // Project-specific JS
 
 import './js/components/date-picker';

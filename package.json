@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --config webpack.dev.js",
-
     "build": "webpack --mode production --optimize-minimize --config webpack.prod.js --prodExt html",
     "sharepoint": "webpack --mode production --optimize-minimize --config webpack.prod.js --prodExt aspx",
-    
+    "gh-pages": "gh-pages -d dist",
     "watch": "webpack --watch",
     "stats": "webpack --mode production --optimize-minimize --config webpack.prod.js --json > stats.json"
   },
@@ -31,6 +30,7 @@
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
     "fsa-style": "^2.3.3",
+    "gh-pages": "^2.1.1",
     "handlebars": "^4.0.11",
     "handlebars-loader": "^1.7.1",
     "handlebars-webpack-plugin": "^1.5.0",
