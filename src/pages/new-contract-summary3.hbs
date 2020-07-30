@@ -1,0 +1,128 @@
+{{#> ../layouts/base TITLE='LDP - New Contract - Summary' NAV3_ACTIVE=true }}
+
+  {{#*inline "main-block"}}
+
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+
+        {{> ../components/stepped-tabs/stepped-tabs STEP3=true }}
+
+				<h1>Contract Summary</h1>
+			
+				{{> ../includes/operation-data }}
+				
+				<hr>
+				<div class="fsa-m-t--s">
+          <h3 class="fsa-m-t--s">Debits:</h3>
+					<div class="fsa-grid">
+						<div class="fsa-grid__1/1 fsa-grid__1/3@m">
+
+							<div class="fsa-m-t--s">
+								<div class="dmc-data-box">
+									<div class="dmc-data-box__title">Premium</div>
+									<div class="dmc-data-box__bd dmc-data-box__bd--lg">$12,000.00</div>
+								</div>
+							</div>
+							
+
+						</div>
+						<div class="fsa-grid__1/1 fsa-grid__1/3@m">
+
+							<div class="fsa-m-t--s">
+								<div class="dmc-data-box">
+									<div class="dmc-data-box__title">Administrative Fee</div>
+									<div class="dmc-data-box__bd dmc-data-box__bd--lg">$100.00</div>
+								</div>
+							</div>
+							
+
+            </div>
+						<div class="fsa-grid__1/1 fsa-grid__1/3@m">
+							
+							<div class="fsa-m-t--s">
+								<div class="dmc-data-box">
+									<div class="dmc-data-box__title">Balance</div>
+									<div class="dmc-data-box__bd dmc-data-box__bd--lg">$12,100.00</div>
+								</div>
+							</div>
+							
+							
+						</div>
+					</div>
+				</div>
+
+
+        <div class="fsa-m-t--s">
+          <h3 class="fsa-m-t--s">Credits:</h3>
+					<div class="fsa-grid">
+						<div class="fsa-grid__1/1 fsa-grid__1/3@m">
+
+							<div class="fsa-m-t--s">
+								<div class="dmc-data-box">
+									<div class="dmc-data-box__title">Premium Credit</div>
+									<div class="dmc-data-box__bd dmc-data-box__bd--lg">$10,000.00</div>
+								</div>
+							</div>
+							
+
+						</div>
+						<div class="fsa-grid__1/1 fsa-grid__1/3@m">
+
+							<div class="fsa-m-t--s">
+								<div class="dmc-data-box">
+									<div class="dmc-data-box__title">Waived</div>
+									<div class="dmc-data-box__bd dmc-data-box__bd--lg">$100.00</div>
+								</div>
+							</div>
+							
+
+            </div>
+						<div class="fsa-grid__1/1 fsa-grid__1/3@m">
+							
+							<div class="fsa-m-t--s">
+								<div class="dmc-data-box">
+									<div class="dmc-data-box__title">Amount Paid</div>
+									<div class="dmc-data-box__bd dmc-data-box__bd--lg">$0.00</div>
+								</div>
+							</div>
+							
+							
+						</div>
+					</div>
+				</div>
+				<div class="fsa-m-t--xl fsa-text-align--right">
+					<div class="fsa-text-size--5">TOTAL DUE: <strong>$2,000.00</strong></div>
+				</div>
+		
+			</div>
+    </div>
+
+
+		<div class="fsa-section">
+      <div class="fsa-section__bd">        
+				
+				{{> ../components/stepped-control/stepped-control
+          CURRENT_STEP="4"
+          TOTAL_STEPS="5"
+          BACK_URL="new-contract-producer.html"
+          BACK_LABEL="Back"
+          CONTINUE_URL="new-contract-remittance2.html"
+          CONTINUE_LABEL="Continue"
+          USE_GROWL_ON_CANCEL=true  
+          GROWL_ID="growl__cancel-new-contract"      
+        }}
+
+
+      </div>
+    </div>
+		
+
+  {{/inline}}
+
+  {{#*inline "hidden-block"}}
+    <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+    {{> ../components/growl/growl-cancel-new-contract GROWL_ID="growl__cancel-new-contract" }}
+    <!-- /HIDDEN -->
+  {{/inline}}
+
+{{/../layouts/base }}

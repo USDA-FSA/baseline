@@ -1,0 +1,161 @@
+{{#> ../layouts/base TITLE='LDP - New Contract - Remittance' NAV3_ACTIVE=true }}
+
+  {{#*inline "main-block"}}
+
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+
+        {{> ../components/stepped-tabs/stepped-tabs STEP4=true }}
+
+				<h1>Remittance Information</h1>
+			
+				{{> ../includes/operation-data }}
+				
+				<hr>
+
+				<div class="fsa-grid">
+					<div class="fsa-grid__1/1 fsa-grid__1/2@m">
+						<span class="fsa-text-size--4">Balance Due: <strong>$2,100.00</strong></span>
+					</div>
+					<div class="fsa-grid__1/1 fsa-grid__1/2@m fsa-text-align--right">
+						<button
+							class="fsa-btn fsa-btn--secondary"
+							type="button"
+							data-behavior="open-modal"
+							aria-controls="modal__remittance-collection-history"
+							aria-expanded="false"
+							type="button">
+							View Collections History
+						</button>
+
+					</div>
+				</div>
+				
+				<h3 class="fsa-m-t--m">Remitter Details</h3>
+
+        <div class="fsa-box">
+          <div class="fsa-grid">
+            <div class="fsa-grid__1/1 fsa-grid__1/2@m">
+              {{> ../components/select/select-state SELECT_ID="UNIQUE-ID-select-state" HELP_ID="UNIQUE-ID-select-state-help" }}
+              {{> ../components/select/select-county SELECT_ID="UNIQUE-ID-select-county" HELP_ID="UNIQUE-ID-select-county-help" STATE_SD=true }}
+
+              
+
+
+            </div>
+            <div class="fsa-grid__1/1 fsa-grid__1/2@m">	
+
+              <div class="fsa-field fsa-field--block">
+                <label class="fsa-field__label" for="UNIQUE-ID-select-office">Remittance Office <span class="fsa-field__label-desc">Required</span></label>
+                <select class="fsa-select fsa-select--block fsa-field__item " id="UNIQUE-ID-select-office" aria-describedby="UNIQUE-ID-select-office-help" aria-required="true" name="UNIQUE-ID-select-office">
+                  <option value="">Office</option>
+                  <option value="1">CODINGTON COUNTY FARM SERVICE AGENCY, SD</option>
+                  <option value="2">MONTGOMERY COUNTY FARM SERVICE AGENCY, SD</option>
+                  <option value="3">SPRINGFIELD COUNTY FARM SERVICE AGENCY, SD</option>
+                  <option value="4">DEMO COUNTY FARM SERVICE AGENCY, SD</option>
+                </select>
+                <!--<span class="fsa-field__help" id="UNIQUE-ID-select-program-year-help">Instructional message here</span>-->
+              </div>
+
+              <div class="fsa-m-b--m fsa-m-t--l">
+                <span class="fsa-text-size--3">Remitter: <strong>ROBERT ROBERTSON</strong></span> 
+                
+              </div>
+              <button type="button" class="fsa-btn fsa-btn--secondary" data-behavior="open-modal" data-target="view-producer-1">Select From SCIMS</button>
+                
+            </div>
+          </div>
+
+        </div>
+
+        <h3 class="fsa-m-t--m">Payment Details</h3>
+        <div class="fsa-box">
+          <div class="fsa-grid">
+            <div class="fsa-grid__1/1 fsa-grid__1/2@m">
+              
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="UNIQUE-ID-remittance-type">Remittance Type <span class="fsa-field__label-desc">Required</span></label>
+                <select class="fsa-select fsa-field__item " id="UNIQUE-ID-select-remittance-type" aria-describedby="UNIQUE-ID-select-remittance-type-help" aria-required="true" name="UNIQUE-ID-select-remittance-type">
+                  <option value=""></option>
+                  <option value="1">Cash and Coin</option>
+                  <option value="2">Check</option>
+                  <option value="3">Debit Card</option>
+                  <option value="4">Bitcoin</option>
+                </select>
+                <!--<span class="fsa-field__help" id="UNIQUE-ID-select-program-year-help">Instructional message here</span>-->
+              </div>
+
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="UNIQUE-ID-check-number">Check/Item Number <span class="fsa-field__label-desc">Required</span></label>
+                <input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="">
+              </div>
+
+            </div>
+            <div class="fsa-grid__1/1 fsa-grid__1/2@m">	
+
+
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="UNIQUE-ID-check-number">Check/Item Date <span class="fsa-field__label-desc">Required</span></label>
+                <input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" placeholder="MM/DD/YYYY" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="">
+              </div>
+
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="UNIQUE-ID-check-number">Remittance Amount <span class="fsa-field__label-desc">Required</span></label>
+                <input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" placeholder="$0.00" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="">
+              </div>
+
+
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="UNIQUE-ID-check-number"><strong>Amount to Apply to DMC</strong> <span class="fsa-field__label-desc">Required</span></label>
+                <input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" placeholder="$0.00" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="">
+              </div>
+                
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+			</div>
+    </div>
+
+		
+
+		<div class="fsa-section">
+      <div class="fsa-section__bd">        
+				
+				{{> ../components/stepped-control/stepped-control
+          CURRENT_STEP="5"
+          TOTAL_STEPS="5"
+          BACK_URL="new-contract-summary.html"
+          BACK_LABEL="Back"
+          CONTINUE_LABEL="Save and Submit"
+          USE_GROWL_ON_CANCEL=true  
+          GROWL_ID="growl__cancel-new-contract" 
+					USE_GROWL_ON_SUBMIT=true
+					ON_SUBMIT_GROWL_ID="growl__new-contract-success"
+        }}
+
+
+      </div>
+    </div>
+		
+
+  {{/inline}}
+
+  {{#*inline "hidden-block"}}
+    <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+		{{> ../components/modal/modal-collection-history }}
+  	{{> ../components/growl/growl-cancel-new-contract
+			GROWL_ID="growl__cancel-new-contract"
+		}}
+		{{> ../components/growl/growl-new-contract-created
+			ON_SUBMIT_GROWL_ID="growl__new-contract-success"
+			ON_SUBMIT_URL="contracts.html"
+		}}
+    <!-- /HIDDEN -->
+  {{/inline}}
+
+{{/../layouts/base }}

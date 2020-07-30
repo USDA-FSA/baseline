@@ -1,0 +1,63 @@
+{{#> ../layouts/base TITLE='LDP - New Contract - General Information' NAV3_ACTIVE=true }}
+
+  {{#*inline "main-block"}}
+
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+
+        {{> ../components/stepped-tabs/stepped-tabs STEP1=true }}
+
+				<h1>General Information</h1>
+			
+				{{> ../includes/operation-data }}
+				
+				<hr>
+
+				<div class="fsa-m-t--m">
+					<span class="fsa-m-r--l fsa-text-size--4">Does the dairy operation currently produce and commercially market milk? </span>
+					<span>
+						<input class="fsa-radio" id="r1" type="radio" name="group1" value="yes">
+						<label for="r1">Yes</label>
+					</span>
+					<span>
+						<input class="fsa-radio" id="r2" type="radio" name="group1" value="no">
+						<label for="r2">No</label>
+					</span>
+				</div>		
+
+				<div class="fsa-m-t--m">
+					<span class="fsa-m-r--l fsa-text-size--4">Enter the 2014-2017 premium credit amount from form CCC-XXX:</span>
+					<input class="fsa-input" type="text" name="1iuoytytesgdf" value="" placeholder="$0.00">
+				</div>
+
+			</div>
+    </div>
+
+
+		<div class="fsa-section">
+      <div class="fsa-section__bd">        
+				
+				{{> ../components/stepped-control/stepped-control
+          CURRENT_STEP="1"
+          TOTAL_STEPS="5"
+          BACK_URL="contracts.html"
+          BACK_LABEL="Back"
+          CONTINUE_URL="new-contract-coverage-level.html"
+          CONTINUE_LABEL="Continue"
+          USE_GROWL_ON_CANCEL=true  
+          GROWL_ID="growl__cancel-new-contract"      
+        }}
+
+      </div>
+    </div>
+		
+
+  {{/inline}}
+
+  {{#*inline "hidden-block"}}
+    <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+    {{> ../components/growl/growl-cancel-new-contract GROWL_ID="growl__cancel-new-contract" }}
+    <!-- /HIDDEN -->
+  {{/inline}}
+
+{{/../layouts/base }}

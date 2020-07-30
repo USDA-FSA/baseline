@@ -1,0 +1,283 @@
+{{#> ../layouts/base TITLE='LDP - New Contract - Producer Certification' NAV3_ACTIVE=true }}
+
+  {{#*inline "main-block"}}
+
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+
+        {{> ../components/stepped-tabs/stepped-tabs STEP3=true }}
+
+				<h1>Producer Certification</h1>
+			
+				{{> ../includes/operation-data }}		
+				
+        <div class="fsa-box fsa-m-t--l">
+
+          <div class="fsa-grid">
+            <div class="fsa-grid__1/1 fsa-grid__1/4@m">
+
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="UNIQUE-ID-check-number">Producer Name <span class="fsa-field__label-desc">Required</span></label>
+                <input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="STICKS RIVER DAIRY">
+              </div>
+
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="UNIQUE-ID-check-number">Signature Date <span class="fsa-field__label-desc">Required</span></label>
+                <input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" placeholder="MM/DD/YYYY" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="">
+              </div>
+
+
+            </div>
+            <div class="fsa-grid__1/1 fsa-grid__1/4@m">
+
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="spinbox-example">Share <span class="fsa-field__label-desc">Required</span></label>
+                <div class="fsa-field__item">
+                  <div class="fsa-spinbox">
+                    <div class="fsa-spinbox__number">
+                      <input class="fsa-input fsa-spinbox__input" id="add-producer-share-percent" aria-describedby="add-producer-share-percent-help" name="add-producer-share-percent" type="number" value="" step="5">
+                    </div>
+                    <div class="fsa-spinbox__actions" aria-hidden="true">
+                      <button tabindex="-1" class="fsa-spinbox__btn fsa-spinbox__btn--increment" type="button" data-behavior="spinbox-spin" title="Increase"></button>
+                      <button tabindex="-1" class="fsa-spinbox__btn fsa-spinbox__btn--decrement" type="button" data-behavior="spinbox-spin" title="Decrease"></button>
+                    </div>
+                  </div>
+                </div>
+                <span class="fsa-field__help" id="add-producer-share-percent-help">This value should be a percentage.</span>
+              </div>
+
+              <div class="fsa-m-t--m">
+                <p>Commensurate?</p>
+                <span>
+                  <input class="fsa-radio" id="m1" type="radio" name="groupm1" value="yes">
+                  <label for="m1">Yes</label>
+                </span>
+                <span>
+                  <input class="fsa-radio" id="m2" type="radio" name="groupm1" value="no">
+                  <label for="m2">No</label>
+                </span>
+              </div>
+
+              
+            </div>
+            <div class="fsa-grid__1/1 fsa-grid__1/4@m">
+              <div class="fsa-m-t--m">
+
+                <p>Participating?</p>
+                <span>
+                  <input class="fsa-radio" id="m3" type="radio" name="groupm2" value="yes">
+                  <label for="m3">Yes</label>
+                </span>
+                <span>
+                  <input class="fsa-radio" id="m4" type="radio" name="groupm2" value="no">
+                  <label for="m4">No</label>
+                </span>
+     
+              </div>
+              <div class="fsa-m-t--m">
+              
+                <p>Refused Payment?</p>
+                <span>
+                  <input class="fsa-radio" id="m5" type="radio" name="groupm3" value="yes">
+                  <label for="m5">Yes</label>
+                </span>
+                <span>
+                  <input class="fsa-radio" id="m6" type="radio" name="groupm3" value="no">
+                  <label for="m6">No</label>
+                </span>
+                     
+              </div>
+            
+            </div>
+            <div class="fsa-grid__1/1 fsa-grid__1/4@m">
+              <div class="fsa-m-t--m">
+                
+                <p>Point of Contract?</p>
+                <span>
+                  <input class="fsa-radio" id="m7" type="radio" name="groupm4" value="yes">
+                  <label for="m7">Yes</label>
+                </span>
+                <span>
+                  <input class="fsa-radio" id="m8" type="radio" name="groupm4" value="no">
+                  <label for="m8">No</label>
+                </span>
+                      
+              </div>
+              <div class="fsa-m-t--m">
+                <button role="button" onclick="window.history.go(-1); return false;" type="button" class="fsa-btn fsa-btn--tertiary fsa-btn--small">
+                  Delete Producer
+                </button>
+              </div>
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+
+        <div class="fsa-box fsa-m-t--s">
+
+          <div class="fsa-grid">
+            <div class="fsa-grid__1/1 fsa-grid__1/4@m">
+
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="UNIQUE-ID-check-number">Producer Name <span class="fsa-field__label-desc">Required</span></label>
+                <input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="NAME FROM SCIMS">
+              </div>
+
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="UNIQUE-ID-check-number">Signature Date <span class="fsa-field__label-desc">Required</span></label>
+                <input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" placeholder="MM/DD/YYYY" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="">
+              </div>
+
+
+            </div>
+            <div class="fsa-grid__1/1 fsa-grid__1/4@m">
+
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="spinbox-example">Share <span class="fsa-field__label-desc">Required</span></label>
+                <div class="fsa-field__item">
+                  <div class="fsa-spinbox">
+                    <div class="fsa-spinbox__number">
+                      <input class="fsa-input fsa-spinbox__input" id="add-producer-share-percent" aria-describedby="add-producer-share-percent-help" name="add-producer-share-percent" type="number" value="" step="5">
+                    </div>
+                    <div class="fsa-spinbox__actions" aria-hidden="true">
+                      <button tabindex="-1" class="fsa-spinbox__btn fsa-spinbox__btn--increment" type="button" data-behavior="spinbox-spin" title="Increase"></button>
+                      <button tabindex="-1" class="fsa-spinbox__btn fsa-spinbox__btn--decrement" type="button" data-behavior="spinbox-spin" title="Decrease"></button>
+                    </div>
+                  </div>
+                </div>
+                <span class="fsa-field__help" id="add-producer-share-percent-help">This value should be a percentage.</span>
+              </div>
+
+              <div class="fsa-m-t--m">
+                <p>Commensurate?</p>
+                <span>
+                  <input class="fsa-radio" id="m1" type="radio" name="groupm1" value="yes">
+                  <label for="m1">Yes</label>
+                </span>
+                <span>
+                  <input class="fsa-radio" id="m2" type="radio" name="groupm1" value="no">
+                  <label for="m2">No</label>
+                </span>
+              </div>
+
+              
+            </div>
+            <div class="fsa-grid__1/1 fsa-grid__1/4@m">
+              <div class="fsa-m-t--m">
+
+                <p>Participating?</p>
+                <span>
+                  <input class="fsa-radio" id="m3" type="radio" name="groupm2" value="yes">
+                  <label for="m3">Yes</label>
+                </span>
+                <span>
+                  <input class="fsa-radio" id="m4" type="radio" name="groupm2" value="no">
+                  <label for="m4">No</label>
+                </span>
+     
+              </div>
+              <div class="fsa-m-t--m">
+              
+                <p>Refused Payment?</p>
+                <span>
+                  <input class="fsa-radio" id="m5" type="radio" name="groupm3" value="yes">
+                  <label for="m5">Yes</label>
+                </span>
+                <span>
+                  <input class="fsa-radio" id="m6" type="radio" name="groupm3" value="no">
+                  <label for="m6">No</label>
+                </span>
+                     
+              </div>
+            
+            </div>
+            <div class="fsa-grid__1/1 fsa-grid__1/4@m">
+              <div class="fsa-m-t--m">
+                
+                <p>Point of Contract?</p>
+                <span>
+                  <input class="fsa-radio" id="m7" type="radio" name="groupm4" value="yes">
+                  <label for="m7">Yes</label>
+                </span>
+                <span>
+                  <input class="fsa-radio" id="m8" type="radio" name="groupm4" value="no">
+                  <label for="m8">No</label>
+                </span>
+                      
+              </div>
+              <div class="fsa-m-t--m">
+                <button role="button" onclick="window.history.go(-1); return false;" type="button" class="fsa-btn fsa-btn--tertiary fsa-btn--small">
+                  Delete Producer
+                </button>
+              </div>
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+
+        <div class="fsa-m-t--s">
+
+          <a role="button" href="" type="button" class="fsa-btn fsa-btn--secondary fsa-btn--small">
+            Add Producer
+          </a>
+
+        </div>
+
+        <div class="fsa-m-t--l">
+
+					<span class="fsa-text-size--4">TOTAL SHARES: <strong>100%</strong></span>
+
+				</div>
+
+        <hr>
+
+				<div class="fsa-m-t--m">
+					<span class="fsa-m-r--l fsa-text-size--4">Does the dairy operation qualify for waiver of the administrative fee? </span>
+					<span>
+						<input class="fsa-radio" id="r3" type="radio" name="group2" value="yes">
+						<label for="r3">Yes</label>
+					</span>
+					<span>
+						<input class="fsa-radio" id="r4" type="radio" name="group2" value="no">
+						<label for="r4">No</label>
+					</span>
+				</div>
+
+      </div>
+    </div>
+		
+    <div class="fsa-section">
+      <div class="fsa-section__bd">        
+				
+				{{> ../components/stepped-control/stepped-control
+          CURRENT_STEP="3"
+          TOTAL_STEPS="5"
+          BACK_URL="new-contract-coverage-level.html"
+          BACK_LABEL="Back"
+          CONTINUE_URL="new-contract-summary.html"
+          CONTINUE_LABEL="Continue"
+          USE_GROWL_ON_CANCEL=true  
+          GROWL_ID="growl__cancel-new-contract"      
+        }}
+        
+      </div>
+    </div>    
+
+  {{/inline}}
+
+  {{#*inline "hidden-block"}}
+    <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+    {{> ../components/growl/growl-cancel-new-contract GROWL_ID="growl__cancel-new-contract" }}
+		
+    <!-- /HIDDEN -->
+  {{/inline}}
+
+{{/../layouts/base }}

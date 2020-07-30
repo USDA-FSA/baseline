@@ -2,14 +2,36 @@
   <div class="fsa-nav-global">
     <div class="fsa-nav-global__bd">
       <ul class="fsa-nav-global__list" aria-label="Primary Navigation" id="primary-navigation">
+        <!-- Menu Item 1 -->
         <li class="fsa-nav-global__list-item">
-          <a class="fsa-nav-global__link {{#if NAV1_ACTIVE }}fsa-nav-global__link--active{{/if}}" href="{{ URL_PREFIX }}index_ext_">
+          <a class="fsa-nav-global__link {{#if NAV1_ACTIVE }}fsa-nav-global__link--active{{/if}}"
+            {{#if NAV1_ACTIVE }}href="index.html"{{else}}href="index-operation-selected.html"{{/if}}
+            aria-current="page">
             <span class="fsa-nav-global__text">Home</span>
           </a>
         </li>
+        <!-- Menu Item 2 -->
+        <li class="fsa-nav-global__list-item">
+          <a class="fsa-nav-global__link {{#if NAV2_ACTIVE }}fsa-nav-global__link--active{{/if}}" href="production-history.html">
+            <span class="fsa-nav-global__text">Production History</span>
+          </a>
+        </li>
+        
+        <li class="fsa-nav-global__list-item">
+          <a class="fsa-nav-global__link {{#if NAV3_ACTIVE }}fsa-nav-global__link--active{{/if}}" href="contracts.html">
+            <span class="fsa-nav-global__text">Contracts</span>
+          </a>
+        </li>
+
+        <li class="fsa-nav-global__list-item">
+          <a class="fsa-nav-global__link {{#if NAV4_ACTIVE }}fsa-nav-global__link--active{{/if}}" href="collections.html">
+            <span class="fsa-nav-global__text">Collections</span>
+          </a>
+        </li>
+
         <li class="fsa-nav-global__list-item">
 
-          <button class="fsa-nav-global__link {{#if NAV2_ACTIVE }}fsa-nav-global__link--active{{/if}} fsa-nav-global__link--has-sub-menu" type="button" aria-expanded="false" aria-controls="UNIQUE-ID-593945">
+          <button class="fsa-nav-global__link {{#if NAV5_ACTIVE }}fsa-nav-global__link--active{{/if}} fsa-nav-global__link--has-sub-menu" type="button" aria-expanded="false" aria-controls="UNIQUE-ID-593945">
             <span class="fsa-nav-global__text" id="UNIQUE-ID-123456789">Admin</span>
           </button>
 
@@ -17,125 +39,26 @@
 
             <div class="fsa-nav-global__sub-menu-bd">
               <ul class="fsa-nav-global__sub-menu-list" aria-labelledby="UNIQUE-ID-123456789">
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Overview</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Reporting Configuration</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Investment Placement</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Burden Investment</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Performance Management</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Budgetery Max Funding</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Premium Exposure Drive</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Technology Plans</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Drive Texture Mechanics</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Unilateral Placement Shifting</a></li>
+                <li class="fsa-nav-global__sub-menu-item">
+                  <a class="fsa-nav-global__sub-menu-link" href="admin-pending-transfers.html">Pending Transfers</a>
+                </li>
+                <li class="fsa-nav-global__sub-menu-item">
+                  <a class="fsa-nav-global__sub-menu-link" href="admin-activate-dairy.html">Activate Dairy</a>
+                </li>
+                <li class="fsa-nav-global__sub-menu-item">
+                  <a class="fsa-nav-global__sub-menu-link" href="">Activate Contract</a>
+                </li>
+                <li class="fsa-nav-global__sub-menu-item">
+                  <a class="fsa-nav-global__sub-menu-link" href="">Approve Contracts</a>
+                </li>
               </ul>
             </div>
 
           </div>
 
         </li>
-        <li class="fsa-nav-global__list-item">
-          <a class="fsa-nav-global__link {{#if NAV3_ACTIVE }}fsa-nav-global__link--active{{/if}}" href="{{ URL_PREFIX }}link_ext_">
-            <span class="fsa-nav-global__text">Customer</span>
-          </a>
-        </li>
-        <li class="fsa-nav-global__list-item fsa-nav-global__list-item--multi-column">
 
-          <button class="fsa-nav-global__link {{#if NAV4_ACTIVE }}fsa-nav-global__link--active{{/if}} fsa-nav-global__link--has-sub-menu" type="button" aria-expanded="false" aria-controls="UNIQUE-ID-852145">
-            <span class="fsa-nav-global__text" id="UNIQUE-ID-123ABC789">Transaction</span>
-          </button>
-
-          <div class="fsa-nav-global__sub-menu" id="UNIQUE-ID-852145" aria-hidden="true">
-
-            <div class="fsa-nav-global__sub-menu-bd" aria-labelledby="UNIQUE-ID-123ABC789">
-
-              <div class="fsa-nav-global__sub-menu-group">
-                <h3 class="fsa-nav-global__sub-menu-title" id="UNIQUE-ID-595553945">Cyclical Purchasing</h3>
-                <ul class="fsa-nav-global__sub-menu-list" aria-labelledby="UNIQUE-ID-595553945">
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Overview</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Budgetery Max Funding</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Premium Exposure Drive</a></li>
-                </ul>
-              </div>
-              <div class="fsa-nav-global__sub-menu-group">
-                <h3 class="fsa-nav-global__sub-menu-title" id="UNIQUE-ID-5955s5s53945">Overage Charge Stream</h3>
-                <ul class="fsa-nav-global__sub-menu-list" aria-labelledby="UNIQUE-ID-5955s5s53945">
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Overview</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Reporting Configuration</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Investment Placement</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Burden Investment</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Performance Management</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Drive Texture Mechanics</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Unilateral Placement Shifting</a></li>
-                </ul>
-              </div>
-              <div class="fsa-nav-global__sub-menu-group">
-                <h3 class="fsa-nav-global__sub-menu-title" id="UNIQUE-ID-595553gq65">Fiscal Unit Development</h3>
-                <ul class="fsa-nav-global__sub-menu-list" aria-labelledby="UNIQUE-ID-595553gq65">
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Overview</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Budgetery Max Funding</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Premium Exposure Drive</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Technology Plans</a></li>
-                </ul>
-              </div>
-              <div class="fsa-nav-global__sub-menu-group">
-                <h3 class="fsa-nav-global__sub-menu-title" id="UNIQUE-ID-sgwq64565a">Lorem ipsum dolor</h3>
-                <ul class="fsa-nav-global__sub-menu-list" aria-labelledby="UNIQUE-ID-sgwq64565a">
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Overview</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Consectetur adipisicing elit</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Tempora magni dolore</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Itaque dolorum</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Blanditiis architecto</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Culpa</a></li>
-                </ul>
-              </div>
-
-            </div>
-
-          </div>
-
-        </li>
-        <li class="fsa-nav-global__list-item fsa-nav-global__list-item--multi-column">
-
-          <button class="fsa-nav-global__link {{#if NAV5_ACTIVE }}fsa-nav-global__link--active{{/if}} fsa-nav-global__link--has-sub-menu" type="button" aria-expanded="false" aria-controls="UNIQUE-ID-6s6s66">
-            <span class="fsa-nav-global__text" id="UNIQUE-ID-6s6234HGDF66">Reports</span>
-          </button>
-
-          <div class="fsa-nav-global__sub-menu" id="UNIQUE-ID-6s6s66" aria-hidden="true">
-
-            <div class="fsa-nav-global__sub-menu-bd">
-              <ul class="fsa-nav-global__sub-menu-list" aria-labelledby="UNIQUE-ID-6s6234HGDF66">
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Overview</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Reporting Configuration</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Investment Placement</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Burden Investment</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Performance Management</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Budgetery Max Funding</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Premium Exposure Drive</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Technology Plans</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Drive Texture Mechanics</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Unilateral Placement Shift</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Reporting Configuration</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Investment Placement</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Burden Investment</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Performance Management</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Budgetery Max Funding</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Premium Exposure Drive</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Technology Plans</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Drive Texture Mechanics</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Unilateral Placement Shift</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Investment Placement</a></li>
-                <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{ URL_PREFIX }}link_ext_">Burden Investment</a></li>
-              </ul>
-            </div>
-
-          </div>
-
-        </li>
-        <li class="fsa-nav-global__list-item">
-          <a class="fsa-nav-global__link {{#if NAV6_ACTIVE }}fsa-nav-global__link--active{{/if}}" href="{{ URL_PREFIX }}link_ext_">
-            <span class="fsa-nav-global__text">Resources</span>
-          </a>
-        </li>
+       
       </ul>
     </div>
   </div>

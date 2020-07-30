@@ -4,6 +4,7 @@
   "description": "Baseline Prototype Kit using Webpack and FSA Style as a dependency.",
   "main": "index.js",
   "scripts": {
+    "dev": "npm run build && npm run start",
     "start": "webpack-dev-server --mode development --config webpack.dev.js",
     "build": "webpack --mode production --optimize-minimize --config webpack.prod.js --prodExt html",
     "sharepoint": "webpack --mode production --optimize-minimize --config webpack.prod.js --prodExt aspx",
