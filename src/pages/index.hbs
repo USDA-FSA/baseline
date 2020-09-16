@@ -5,20 +5,22 @@
     <div class="fsa-section">
       <div class="fsa-section__bd">
         
-        <h1>Loan Deficiency Payments</h1>
+        <h1>LDP Prototype Start</h1>
+
+          
 
           <p class="fsa-text--lead">
-						The program offers dairy producers: (1) catastrophic coverage, at no cost to the producer, other than an annual $100 administrative fee (which is waived in some cases); and (2) various levels of buy-up coverage.
-					</p>
+            BEGIN PROCESS FLOW BY SELECTING USER BELOW
+          </p>
           
 					<div class="fsa-m-t--l">
 
-						<a role="button" href="search-common-selection.html" class="fsa-btn fsa-btn--secondary" type="button">
-						  <span class="fsa-stepped-control__btn-label">Search for Customer</span>
+						<a role="button" onclick="Router.to('county-office/index_ext_'); return false;" href="" class="fsa-btn fsa-btn--secondary" type="button">
+						  <span class="fsa-stepped-control__btn-label">County Office User</span>
 						</a>
 
-						<a role="button" href="search-common-selection.html" class="fsa-btn fsa-btn--secondary" type="button">
-						  <span class="fsa-stepped-control__btn-label">Set County &amp; State</span>
+						<a role="button" onclick="Router.to('producer/index_ext_'); return false;" href="" class="fsa-btn fsa-btn--secondary" type="button">
+						  <span class="fsa-stepped-control__btn-label">Producer</span>
 						</a>
 
 					</div>
@@ -34,5 +36,11 @@
     {{> ../includes/hidden }}
     <!-- /HIDDEN -->
   {{/inline}}
+
+  <script>
+    // clear Storage
+    Store.actions.deleteAllData();
+  </script>
+
 
 {{/../layouts/base }}

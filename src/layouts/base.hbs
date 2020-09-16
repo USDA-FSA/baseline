@@ -18,6 +18,8 @@
       USER_NAME="Michael Scott"
     }}
     {{> ../components/global-nav/global-nav
+      NAV_USER_COU=NAV_USER_COU
+      NAV_USER_PU=NAV_USER_PU
       NAV1_ACTIVE=NAV1_ACTIVE
       NAV2_ACTIVE=NAV2_ACTIVE
       NAV3_ACTIVE=NAV3_ACTIVE
@@ -25,8 +27,6 @@
     }}
   </header>
   {{/header-block}}
-
-  
 
   <main id="main-content" tabindex="-1">
   {{#> main-block}}
@@ -48,6 +48,7 @@
 
   {{#> scripts-block}}
   <!-- BASE scripts-block -->
+  {{> ../includes/scripts }}
   {{/scripts-block}}
 
 </body>

@@ -3693,12 +3693,14 @@ var datePickerController = (function datePickerController() {
   };
 })();
 
-if (datePickerOne) {
+/*
+if (datePickerOne != null) {
   datePickerController.createDatePicker({
     formElements: datePickerOne.formElements ? datePickerOne.formElements : {},
     disabledDays: datePickerOne.disabledDays ? datePickerOne.disabledDays : [],
   });
 }
+*/
 
 
 /* KEEP FOR REFERENCE

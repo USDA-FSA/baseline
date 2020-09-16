@@ -65,10 +65,10 @@ $('body').on('change', '[data-behavior~="inspections-count-filter"]', function(e
   }
 
   if ($inspectionRowsHidden.length >= 20) {
-    $('#inspections-amt').html('1-20');
+    $('#inspections-amt')_ext_('1-20');
   }
   if ($inspectionRowsHidden.length < 20) {
-    $('#inspections-amt').html($inspectionRowsHidden.length);
+    $('#inspections-amt')_ext_($inspectionRowsHidden.length);
   }
 
 })
@@ -157,7 +157,7 @@ $('body').on('click', '[data-behavior~="reset-filter-fields"]', function(event) 
   $componentRows.removeAttr('data-filtered-by-assignee data-not-filtered-by-assignee')
   $component.find('.fic-inspections__tfoot').attr('hidden', true);
   $('#inspections-pagination').removeAttr('hidden');
-  $('#inspections-amt').html('1-20');
+  $('#inspections-amt')_ext_('1-20');
 
 })
 

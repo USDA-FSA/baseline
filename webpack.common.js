@@ -54,7 +54,7 @@ const exportsObject = {
     'main': [
       './src/stylesheets/base.scss',
       customizations.fsaStyleJSPath,
-      './src/index.js'
+      './src/index.js',    
     ]
   },
 /*
