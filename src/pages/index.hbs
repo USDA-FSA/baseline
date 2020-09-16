@@ -37,10 +37,15 @@
     <!-- /HIDDEN -->
   {{/inline}}
 
+  {{#*inline "scripts-block"}}
   <script>
-    // clear Storage
-    Store.actions.deleteAllData();
+    window.onload = (evt) => {
+      // clear Storage
+      Store.actions.deleteAllData();
+    }
   </script>
+
+  {{/inline}}
 
 
 {{/../layouts/base }}

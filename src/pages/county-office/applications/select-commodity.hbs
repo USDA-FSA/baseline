@@ -27,6 +27,7 @@
 
 					<select onchange="setCommodity(this.value)" class="fsa-select fsa-field__item" id="UNIQUE-ID-commodity" aria-describedby="percentage-help"
 						aria-required="true" name="UNIQUE-ID-commodity">
+						<option value="x" selected>Select One</option>
 						<option value="Corn">Corn</option>
 						<option value="Flax">Flax</option>
 						<option value="Soy Bean">Soybeans</option>
@@ -42,7 +43,7 @@
 			<span>
 				<div class="fsa-field">
 
-					<select disabled class="fsa-select fsa-field__item" id="UNIQUE-ID-class" aria-describedby="percentage-help"
+					<select onchange="setClass(this.value)" disabled class="fsa-select fsa-field__item" id="UNIQUE-ID-class" aria-describedby="percentage-help"
 						aria-required="true" name="UNIQUE-ID-class">
 					</select>
 				</div>
@@ -56,7 +57,7 @@
 <div class="fsa-section">
 	<div class="fsa-section__bd">
 
-		{{> ../components/stepped-control/stepped-control
+		{{> ../components/stepped-control/stepped-control-application-cou
           CURRENT_STEP="4"
           TOTAL_STEPS="8"
           BACK_URL=""
@@ -80,27 +81,41 @@
 <!-- /HIDDEN -->
 {{/inline}}
 
+{{#*inline "scripts-block"}}
+<!-- page-level scripts -->
 <script>
 	function setCommodity(commodity){
-		localStorage.setItem('setCommodity', commodity)
+		console.log('setCommodity',commodity);
+		Store.actions.setCommodity(commodity);
+		
 		var classSelect = document.getElementById('UNIQUE-ID-class');
 		classSelect.innerHTML = '';
-		
-		if(commodity=='Corn'){
-			classSelect.options.add( new Option('Yellow', 'yellow') )
-			classSelect.options.add( new Option('White', 'white') )
-		} else if(commodity=='Triticale'){
-			classSelect.options.add( new Option('Rye', 'rye') )
-			classSelect.options.add( new Option('Wheat', 'wheat') )
+
+		if(commodity != 'x'){
+			if(commodity=='Corn'){
+				classSelect.options.add( new Option('Yellow', 'yellow') )
+				classSelect.options.add( new Option('White', 'white') )
+			} else if(commodity=='Triticale'){
+				classSelect.options.add( new Option('Rye', 'rye') )
+				classSelect.options.add( new Option('Wheat', 'wheat') )
+			} else {
+				classSelect.options.add( new Option('class 1', 10) )
+				classSelect.options.add( new Option('class 2', 20) )
+				classSelect.options.add( new Option('class 3', 20) )
+				classSelect.options.add( new Option('class 4', 20) )
+			}
+			classSelect.disabled = false;
 		} else {
-			classSelect.options.add( new Option('class 1', 10) )
-			classSelect.options.add( new Option('class 2', 20) )
-			classSelect.options.add( new Option('class 3', 20) )
-			classSelect.options.add( new Option('class 4', 20) )
+			classSelect.disabled = true;
 		}
-		classSelect.disabled = false;
+	}
+
+	function setClass(comClass){
+		console.log('setCommodityClass',comClass)
+		Store.actions.setCommodityClass(comClass)
 	}
 </script>
-
+<!-- /page-level scripts -->
+{{/inline}}
 
 {{/../layouts/base }}

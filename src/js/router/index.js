@@ -13,7 +13,7 @@ const Router = (() => {
   };
   
   const back = () => {
-    history.back();
+    window.history.back();
   }
 
   return {
