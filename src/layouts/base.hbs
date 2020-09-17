@@ -8,18 +8,22 @@
   {{> ../includes/skipnav }}
   {{> ../includes/fsa-browser-upgrade }}
   {{> ../components/whiteout/whiteout }}
-
+  
   {{#> header-block}}
   <header>
     {{> ../components/tophat/tophat }}
-    {{> ../components/header-app/header-app }}
+    {{> ../components/header-app/header-app
+      APP_ABR="LDP"
+      APP_FULL_NAME="Loan Deficency Payments"
+      USER_NAME="Michael Scott"
+    }}
     {{> ../components/global-nav/global-nav
+      NAV_USER_COU=NAV_USER_COU
+      NAV_USER_PU=NAV_USER_PU
       NAV1_ACTIVE=NAV1_ACTIVE
       NAV2_ACTIVE=NAV2_ACTIVE
       NAV3_ACTIVE=NAV3_ACTIVE
       NAV4_ACTIVE=NAV4_ACTIVE
-      NAV5_ACTIVE=NAV5_ACTIVE
-      NAV6_ACTIVE=NAV6_ACTIVE
     }}
   </header>
   {{/header-block}}
@@ -41,6 +45,11 @@
   {{#> hidden-block}}
   <!-- BASE hidden-block -->
   {{/hidden-block}}
+
+  {{#> scripts-all-block}}
+  <!-- BASE scripts-all-block -->
+  {{> ../includes/scripts }}
+  {{/scripts-all-block}}
 
   {{#> scripts-block}}
   <!-- BASE scripts-block -->
